@@ -1,0 +1,240 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+    START: Page Header CSS
+----------------------------------------*/
+
+.service-item{
+    background: var(--ts-color-common-white);
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    padding: 20px;
+    @include transition(all 0.3s ease-in-out);
+    .service-thumb{
+        height: 250px;
+        width: 100%;
+        margin-bottom: 40px;
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .rating{
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--ts-color-common-white);
+            @include flex-vertical-center;
+            font-family: var(--ts-ff-heading);
+            color: var(--ts-color-heading-primary);
+            column-gap: 5px;
+            padding: 5px 15px;
+            font-size: 16px;
+            font-weight: 500;
+            i{
+                color: #F7921E;
+                font-size: 13px;
+                line-height: 2;
+            }
+        }
+        .arrow{
+            position: absolute;
+            bottom: -22.5px;
+            right: 25px;
+            a{
+                background-color: var(--ts-color-common-white);
+                color: var(--ts-color-heading-primary);
+                height: 55px;
+                width: 55px;
+                @include flex-center;
+                border-radius: 50%;
+                box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
+                &:hover{
+                    background-color: var(--ts-color-theme-primary);
+                    color: var(--ts-color-common-white);
+                }
+            }
+        }
+    }
+    .service-content{
+        padding: 0 15px;
+        padding-bottom: 20px;
+        @include breakpoint(sm){
+            padding: 0;
+        }
+        .title{
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        p{
+            margin-bottom: 20px;
+        }
+        .service-icon-list{
+            @include flex-vertical-center;
+            column-gap: 20px;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            li{
+                background: rgba(28, 168, 203, 0.1);
+                height: 50px;
+                width: 50px;
+                @include flex-center;
+                border-radius: 50%;
+                @include transition(all 0.3s ease-in-out);
+                img{
+                    @include transition(all 0.3s ease-in-out);
+                }
+                &:hover{
+                    background-color: var(--ts-color-theme-primary);
+                    img{
+                        filter: brightness(0) invert(1);
+                    }
+                }
+            }
+        }
+    }
+    &:hover{
+        transform: translateY(-5px);
+    }
+}
+
+.service-promo{
+    background: rgba(28, 168, 203, 0.1);
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    grid-gap: 20px;
+    border: 1px solid #1CA8CB;
+    border-radius: 7px;
+    @include transition(all 0.3s ease-in-out);
+    @include breakpoint(lg){
+        grid-template-columns: 1fr;
+    }
+    @include breakpoint(sm){
+        padding: 30px 20px;
+    }
+    .icon{
+        background-color: var(--ts-color-common-white);
+        height: 75px;
+        width: 75px;
+        @include flex-center;
+        border-radius: 50%;
+        @include transition(all 0.3s ease-in-out);
+    }
+    .content{
+        .title{
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            @include transition(all 0.3s ease-in-out);
+        }
+        p{
+            color: #484848;
+            margin-bottom: 0;
+            @include transition(all 0.3s ease-in-out);
+        }
+    }
+    &:hover{
+        background-color: var(--ts-color-theme-primary);
+        .content{
+            p,
+            .title{
+                color: var(--ts-color-common-white);
+            }
+        }
+    }
+}
+
+
+// Service 2
+
+.service-section-2{
+    position: relative;
+    z-index: 1;
+    .bg-shape{
+        @include background;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.service-item-2{
+    background-color: var(--ts-color-common-white);
+    padding: 45px 30px 40px 30px;
+    position: relative;
+    z-index: 1;
+    .border-line{
+        background-color: var(--ts-color-theme-primary);
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    &:before{
+        background-color: var(--ts-color-theme-primary);
+        content: "";
+        width: 100%;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        @include transition(all 0.3s ease-in-out);
+    }
+    .title{
+        font-size: 35px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        @include breakpoint(sm){
+            font-size: 30px;
+        }
+        a{
+            
+            @include transition(all 0.3s ease-in-out);
+        }
+    }
+    p{
+        font-size: 18px;
+        margin-bottom: 80px;
+        @include transition(all 0.3s ease-in-out);
+    }
+    .read-more{
+        font-family: var(--ts-ff-heading);
+        color: var(--ts-color-theme-primary);
+        font-size: 18px;
+        font-weight: 400;
+        column-gap: 10px;
+        @include flex-vertical-center;
+        justify-content: end;
+        @include transition(all 0.3s ease-in-out);
+    }
+    &:hover{
+        &:before{
+            height: 100%;
+        }
+        p{
+            color: var(--ts-color-common-white);
+        }
+        .title{
+            a{
+                color: var(--ts-color-common-white);
+            }
+        }
+        .read-more{
+            color: var(--ts-color-common-white);
+        }
+    }
+}
+
+/* !END: Page Header CSS */

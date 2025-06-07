@@ -1,0 +1,27 @@
+$colors: (
+  "common": (
+    "white": #ffffff,
+    "black": #1b1b1b, // tono del texto oscuro del logo
+  ),
+  "heading": (
+    "primary": #2A3B2D, // tono verde oscuro del texto "EL AGRESTE"
+  ),
+  "text": (
+    "body": #5B5B5B, // gris medio para textos secundarios
+  ),
+  "theme": (
+    "primary": #007F80, // verde azulado oscuro del borde inferior
+    "secondary": #F2910A, // naranja del fondo superior
+  ),
+  "bg": (
+    "1": #F6EFE4, // beige cálido para fondos claros
+    "2": #005C5D, // azul petróleo profundo
+  ),
+  "grey": (
+    "1": #DADADA, // gris claro para fondos o separadores
+  ),
+  "border": (
+    "1": #C4C4C4, // gris neutro para bordes
+  ),
+);
+

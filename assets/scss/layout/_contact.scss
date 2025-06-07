@@ -1,0 +1,103 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Contact CSS
+----------------------------------------*/
+
+
+.contact-box{
+    background-color: var(--ts-color-theme-primary);
+    padding: 60px 55px;
+    border-radius: 5px;
+    @include breakpoint(md){
+        margin-bottom: 40px;
+    }
+    @include breakpoint(sm){
+        padding: 40px 20px;
+    }
+    .contact-info{
+        .rating-title{
+            color: var(--ts-color-common-white);
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        .rating-list{
+            @include flex-vertical-center;
+            list-style: none;
+            li{
+                color: #FFC107;
+                &:not(:last-of-type){
+                    margin-right: 5px;
+                }
+            }
+        }
+        span{
+            color: var(--ts-color-common-white);
+            display: block;
+            margin-top: 20px;
+        }
+    }
+}
+
+.contact-items{
+    margin-bottom: 60px;
+    .contact-item{
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        grid-gap: 10px;
+        @include breakpoint(sm){
+            grid-template-columns: 1fr;
+        }
+        &:not(:last-of-type){
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .icon{
+            color: var(--ts-color-common-white);
+            font-size: 35px;
+        }
+        .content{
+            span{
+                color: var(--ts-color-common-white);
+                font-size: 16px;
+                font-weight: 400;
+                display: block;
+                margin-bottom: 7px;
+            }
+            .title{
+                color: var(--ts-color-common-white);
+                font-size: 22px;
+                font-weight: 500;
+                margin-bottom: 0;
+                a{
+                    color: var(--ts-color-common-white);
+                }
+            }
+        }
+    }
+}
+
+.contact-form{
+    padding-left: 30px;
+    @include breakpoint(md){
+        padding-left: 0;
+    }
+    .form-item{
+        .form-control{
+            border: 1px solid rgba(28, 168, 203, 0.15);
+            border-radius: 3px;
+            box-shadow: none;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.map-wrapper{
+    margin-bottom: -10px;
+}
+
+/* !END: Theme Contact CSS */

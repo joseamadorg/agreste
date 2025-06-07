@@ -1,0 +1,512 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+    START: Hero CSS
+----------------------------------------*/
+
+.hero-section{
+    background-color: rgba(234, 234, 234, 0.45);
+    position: relative;
+    z-index: 1;
+    overflow-x: clip;
+    .hero-map{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .bottom-bg-color{
+        background-color: var(--ts-color-common-white);
+        height: 59px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.hero-container{
+    max-width: 1630px;
+}
+
+.hero-content{
+    padding: 180px 0 280px 0;
+    position: relative;
+    z-index: 5;
+    @include breakpoint(md){
+        padding: 100px 0 40px 0;
+    }
+    @include breakpoint(sm){
+        padding-top: 70px;
+    }
+    .section-heading{
+        .sub-heading{
+            margin-bottom: 10px;
+        }
+    }
+    .sub-title{
+        font-family: var(--ts-ff-heading);
+        color: var(--ts-color-theme-primary);
+        font-size: 18px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 25px;
+        text-transform: inherit;
+        position: relative;
+        padding: 0 80px;
+        overflow: hidden;
+        @include breakpoint(md){
+            font-size: 18px;
+        }
+        @include breakpoint(sm){
+            font-size: 16px;
+            padding-left: 40px;
+            padding-right: 0;
+        }
+        &:before{
+            background: var(--ts-color-theme-primary);
+            content: "";
+            width: 60px;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 0px;
+            transform: translateY(-50%);
+            opacity: 1;
+            @include transition(all 0.3s ease-in-out);
+            @include breakpoint(sm){
+                width: 30px;
+            }
+        }
+        &:after{
+            background: var(--ts-color-theme-primary);
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            transform: translateY(-50%) rotate(45deg);
+            @include transition(all 0.3s ease-in-out);
+            @include breakpoint(sm){
+                left: 20px;
+            }
+        }
+    }
+    .title{
+        font-size: 75px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: capitalize;
+        @include breakpoint(xl){
+            font-size: 60px;
+        }
+        @include breakpoint(lg){
+            font-size: 50px;
+        }
+        @include breakpoint(sm){
+            font-size: 40px;
+        }
+    }
+    p{
+        margin-bottom: 40px;
+        @include breakpoint(lg){
+            max-width: 400px;
+            width: 100%;
+            br{
+                display: none;
+            }
+        }
+    }
+    .hero-btn-wrap{
+        @include flex-vertical-center;
+        column-gap: 40px;
+        flex-wrap: wrap;
+        row-gap: 20px;
+        .hero-rating{
+            @include flex-vertical-center;
+            column-gap: 20px;
+            .review-list{
+                list-style: none;
+                li{
+                    color: #FFC107;
+                    display: inline-flex;
+                }
+            }
+            span{
+                color: #FFC107;
+            }
+        }
+    }
+}
+
+.hero-img-wrap{
+    max-width: 853px;
+    width: 100%;
+    height: 763px;
+    position: absolute;
+    top: 50px;
+    right: 70px;
+    @include breakpoint(xl){
+        right: 0;
+    }
+    @include breakpoint(md){
+        max-width: 992px;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    @include breakpoint(sm){
+        height: 485px;
+    }
+    .hero-item{
+        position: absolute;
+        background-color: var(--ts-color-common-white);
+        @include flex-vertical-center;
+        column-gap: 15px;
+        box-shadow: 0px 24px 50px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 7px 20px;
+        color: var(--ts-color-heading-primary);
+        z-index: 2;
+        @include breakpoint(sm){
+            display: none;
+        }
+        &.item-1{
+            top: 20%;
+            left: 7%;
+            @include breakpoint(xl){
+                left: 20%;
+            }
+            @include breakpoint(md){
+                left: 10%;
+            }
+        }
+        &.item-2{
+            top: 15%;
+            right: 7%;
+        }
+        &.item-3{
+            bottom: 25%;
+            left: 20%;
+            @include breakpoint(xl){
+                left: 30%;
+            }
+            @include breakpoint(md){
+                left: 15%;
+            }
+        }
+        &.item-4{
+            bottom: 32%;
+            right: 0;
+            @include breakpoint(xl){
+                right: 5%;
+            }
+        }
+    }
+    .hero-inner-img{
+        max-width: 700px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include breakpoint(xl){
+            left: 62%;
+        }
+        @include breakpoint(md){
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hero-img{
+            position: absolute;
+            bottom: 0;
+            left: 53%;
+            transform: translateX(-50%);
+            max-width: 466px;
+            width: 100%;
+            height: 763px;
+            @include breakpoint(sm){
+                height: auto;
+            }
+        }
+    }
+}
+
+.hero-box {
+    background-color: var(--ts-color-common-white);
+    max-width: 1324px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 1px 7px 14px -8px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 1px 7px 14px -8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 7px 14px -8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 5;
+    @include breakpoint(lg){
+        margin-top: 0;
+        max-width: 900px;
+    }
+    @include breakpoint(md){
+        padding: 20px;
+    }
+    @include breakpoint(sm){
+        flex-direction: column;
+        align-items: baseline;
+        row-gap: 30px;
+        margin-top: 40px;
+    }
+    .box-item {
+        @include breakpoint(sm) {
+            width: 100%;
+        }
+        .box-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        &:not(:last-of-type) {
+            margin-right: 45px;
+            padding-right: 45px;
+            border-right: 1px solid var(--ts-color-border-1);
+            @include breakpoint(xl){
+                margin-right: 20px;
+                border-right: none;
+                padding-right: 0;
+            }
+            @include breakpoint(sm) {
+                margin-right: 0px;
+                padding-right: 0px;
+            }
+        }
+        .form-control {
+            background-color: #F5F5F5;
+            border: none;
+            border-bottom: 1px solid var(--ts-color-border-2);
+            padding-left: 0;
+            padding: 10px 20px;
+            width: 260px;
+            @include breakpoint(xl) {
+                width: 200px;
+            }
+            @include breakpoint(lg) {
+                width: 150px;
+            }
+            @include breakpoint(sm) {
+                width: 100%;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+            &.nice-select {
+                height: auto;
+                line-height: inherit;
+                padding: 10px 20px;
+                width: 260px;
+                height: auto;
+                line-height: inherit;
+                @include breakpoint(xl) {
+                    width: 200px;
+                }
+                @include breakpoint(lg) {
+                    width: 150px;
+                }
+                &:after {
+                    border-color: var(--ts-color-theme-primary);
+                    height: 8px;
+                    width: 8px;
+                    margin-top: -5px;
+                }
+                .option {
+                    padding-left: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .ts-primary-btn{
+            @include breakpoint(md){
+                font-size: 14px;
+                padding: 14px 15px;
+            }
+        }
+    }
+}
+
+
+// Hero 2
+
+.hero-section-2{
+    padding-top: 140px;
+    background: rgba(28, 168, 203, 0.05);
+    position: relative;
+    z-index: 1;
+    @include breakpoint(md){
+        padding-top: 100px;
+    }
+    .hero-bg-shape{
+        @include background;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .hero-container{
+        max-width: 1825px;
+    }
+}
+
+.hero-wrap-2{
+    position: relative;
+    z-index: 1;
+    border-radius: 40px;
+    overflow: hidden;
+    .overlay{
+        background-color: rgba(0, 0, 0, 0.45);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .bg-img{
+        @include background;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+    }
+    .hero-text{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1597px;
+        width: 100%;
+        height: 106px;
+        z-index: 1;
+        @include breakpoint(md){
+            max-width: 650px;
+            height: 70px;
+        }
+        @include breakpoint(sm){
+            display: none;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.hero-content-2{
+    text-align: center;
+    padding: 244px 0;
+    @include breakpoint(md){
+        padding: 150px 0;
+    }
+    @include breakpoint(sm){
+        padding: 100px 20px;
+    }
+    .sub-title{
+        padding-right: 0;
+        color: var(--ts-color-common-white);
+        margin-bottom: 0;
+        &:after,
+        &:before{
+            background-color: var(--ts-color-common-white);
+            top: 48%;
+        }
+    }
+    .title{
+        margin: 30px 0 45px 0;
+        @include breakpoint(sm){
+            font-size: 30px;
+        }
+        
+    }
+}
+
+// Hero 3
+
+.hero-3{
+    background: rgba(28, 168, 203, 0.1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    .bg-shape{
+        @include background;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .right-shape{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        @include breakpoint(lg){
+            right: -150px;
+        }
+        @include breakpoint(md){
+            display: none;
+        }
+        img{
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.hero-wrap-3{
+    position: relative;
+    z-index: 1;
+    .hero-img-3{
+        position: absolute;
+        bottom: -60px;
+        right: -100px;
+        width: auto;
+        height: 864px;
+        @include breakpoint(xl){
+            right: 0;
+        }
+        @include breakpoint(lg){
+            right: -50px;
+        }
+        @include breakpoint(md){
+            position: relative;
+            height: auto;
+            right: 0;
+            margin: 0 auto;
+        }
+    }
+}
+
+.hero-content-3{
+    padding: 310px 0 290px 0;
+    @include breakpoint(md){
+        padding: 100px 0 0 0;
+    }
+    .section-heading{
+        .sub-heading{
+            @include breakpoint(sm){
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+/* !END: Hero CSS */

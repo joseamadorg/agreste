@@ -1,0 +1,340 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Footer CSS
+----------------------------------------*/
+.footer-section {
+    position: relative;
+    z-index: 1;
+    .bg-img{
+        @include background;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+    }
+    .overlay{
+        background-color: rgba(0, 0, 0, 0.50);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.footer-wrap{
+    @include breakpoint(md){
+        margin-top: 50px;
+    }
+}
+
+.footer-widget {
+    padding: 90px 0;
+    @include breakpoint(md) {
+        padding: 0;
+        margin-bottom: 80px;
+    }
+    @include breakpoint(sm){
+        margin-bottom: 50px;
+    }
+    .widget-header {
+        margin-bottom: 35px;
+        .footer-logo{
+            max-width: 200px;
+        }
+        .widget-title{
+            color: var(--ts-color-common-white);
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+    p{
+        color: var(--ts-color-common-white);
+        margin-bottom: 30px;
+    }
+    .footer-list {
+        list-style: none;
+        li {
+            color: rgba(255, 255, 255, 0.8);
+            a {
+                font-family: var(--ts-ff-body);
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1;
+                &:hover {
+                    color: var(--ts-color-theme-primary);
+                }
+            }
+            &:not(:last-of-type) {
+                margin-bottom: 25px;
+            }
+        }
+    }
+    .address-list {
+        .adress-item{
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            grid-gap: 10px;
+            &:not(:last-of-type){
+                margin-bottom: 15px;
+            }
+            .icon{
+                color: var(--ts-color-theme-primary);
+                font-size: 20px;
+            }
+            .content{
+                .title{
+                    color: var(--ts-color-common-white);
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                }
+                a,
+                span{
+                    color: #EBEBEB;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                a{
+                    &:hover{
+                        color: var(--ts-color-theme-primary);
+                    }
+                }
+            }
+        }
+    }
+    .footer-gallery-wrap{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        max-width: 278px;
+        width: 100%;
+    }
+    .social-list {
+        @include flex-vertical-center;
+        list-style: none;
+        li {
+            a {
+                background-color: transparent;
+                color: var(--ts-color-theme-primary);
+                font-size: 14px;
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                display: block;
+                border: 1px solid var(--ts-color-theme-primary);
+                @include flex-center;
+                &:hover {
+                    background-color: var(--ts-color-theme-primary);
+                    color: var(--ts-color-common-white);
+                }
+            }
+            &:not(:last-of-type) {
+                margin-right: 10px;
+            }
+        }
+    }
+    .form-check{
+        margin-top: 30px;
+        .form-check-input{
+            background-color: var(--ts-color-border-1);
+            border: none;
+            box-shadow: none;
+            height: 17px;
+            width: 17px;
+            &:checked[type=checkbox]{
+                box-shadow: none;
+            }
+        }
+        .form-check-label{
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+    }
+    &.footer-col-2{
+        padding-left: 105px;
+        @include breakpoint(lg){
+            padding-left: 50px;
+        }
+        @include breakpoint(md){
+            padding-left: 0;
+        }
+        position: relative;
+        &:before{
+            background-color: rgba(219, 219, 219, 0.25);
+            content: "";
+            width: 1px;
+            height: 3000px;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            @include breakpoint(lg){
+                display: none;
+            }
+        }
+        .footer-list{
+            li{
+                a{
+                    color: var(--ts-color-common-white);
+                    position: relative;
+                    padding-left: 15px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    &:hover{
+                        color: var(--ts-color-theme-primary);
+                    }
+                    &:before{
+                        background-color: var(--ts-color-common-white);
+                        content: "";
+                        height: 5px;
+                        width: 5px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                        transition: all 0.3s ease-in-out;
+                    }
+                    &:hover{
+                        &:before{
+                            color: var(--ts-color-theme-primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.widget-3{
+        padding-left: 40px;
+        @include breakpoint(lg){
+            padding-left: 0;
+        }
+    }
+    &.gallary-widget{
+        padding-left: 30px;
+        @include breakpoint(lg){
+            padding-left: 0;
+        }
+    }
+}
+
+.footer-top{
+    padding-top: 50px;
+    @include breakpoint(lg){
+        border-bottom: 1px solid rgba(219, 219, 219, 0.25)
+    }
+    .footer-subscribe-wrap{
+        @include flex-vertical-center;
+        column-gap: 30px;
+        justify-content: end;
+        position: relative;
+        padding-bottom: 40px;
+        @include breakpoint(lg){
+            justify-content: start;
+            align-items: baseline;
+        }
+        @include breakpoint(md){
+            flex-direction: column;
+            row-gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        &:before{
+            background-color: rgba(219, 219, 219, 0.25);
+            content: "";
+            width: 3000px;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            @include breakpoint(lg){
+                display: none;
+            }
+        }
+        .footer-subscribe-title{
+            color: var(--ts-color-common-white);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 0;
+            @include breakpoint(sm){
+                text-align: center;
+            }
+        }
+        .ts-subscribe-form{
+            @include flex-vertical-center;
+            column-gap: 20px;
+            @include breakpoint(sm){
+                flex-direction: column;
+                row-gap: 10px;
+                align-items: center;
+                justify-content: center;
+            }
+            .form-control{
+                width: 340px;
+                padding: 14.5px 20px;
+                box-shadow: none;
+                border: none;
+                @include breakpoint(sm){
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+
+
+.copyright-area{
+    border-top: 1px solid rgba(219, 219, 219, 0.25);
+    padding: 40px 0;
+    @include breakpoint(md){
+        padding: 40px 0
+    }
+}
+
+.copyright-content {
+    align-items: center;
+    @include breakpoint(md) {
+        margin-top: 0;
+    }
+    @include breakpoint(sm) {
+        row-gap: 20px;
+    }
+    p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        font-family: var(--ts-ff-body);
+        margin: 0;
+        span {
+            color: var(--ts-color-theme-primary);
+        }
+        @include breakpoint(sm){
+            text-align: center;
+        }
+    }
+    .copyright-list{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        justify-content: end;
+        @include breakpoint(sm){
+            justify-content: center;
+        }
+        a{
+            color: var(--ts-color-common-white);
+            &:hover{
+                color: var(--ts-color-theme-primary);
+            }
+        }
+    }
+}
+
+
+
+/* !END: Theme Footer CSS */

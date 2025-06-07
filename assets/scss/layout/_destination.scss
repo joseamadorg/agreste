@@ -1,0 +1,278 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+    START: Destination CSS
+----------------------------------------*/
+
+.destination-item{
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    .overlay{
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 21.88%, rgba(17, 47, 56, 0.84) 84.9%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .destination-thumb{
+        height: 404px;
+        border-radius: 8px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale3d(1, 1, 1);
+            transition: transform 0.8s ease-in-out;
+        }
+    }
+    .destination-content{
+        position: absolute;
+        bottom: 40px;
+        left: 30px;
+        right: 30px;
+        z-index: 5;
+        .title{
+            color: var(--ts-color-common-white);
+            font-size: 28px;
+            font-weight: 500;
+            a {
+                background: linear-gradient(var(--ts-color-common-white) 0%, var(--ts-color-common-white) 98%);
+                background-size: 0 2px;
+                background-repeat: no-repeat;
+                background-position: left 100%;
+                @include transition(all 0.3s ease-in-out);
+                &:hover {
+                    color: var(--ts-color-common-white);
+                    background-size: 100% 2px;
+                }
+            }
+        }
+        span{
+            color: var(--ts-color-common-white);
+        }
+    }
+    &:hover{
+        .destination-thumb{
+            img{
+                transform: scale(1.03) rotate(0deg);
+            }
+        }
+    }
+}
+
+
+// Destination 2
+
+.destination-container{
+    max-width: 1645px;
+}
+
+.destination-nav{
+    text-align: center;
+    justify-content: center;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    margin-bottom: 50px;
+    border: none;
+    @include breakpoint(lg){
+        column-gap: 10px;
+    }
+    .nav-item{
+        .nav-link{
+            background-color: var(--ts-color-common-white);
+            padding: 7px 30px;
+            color: var(--ts-color-theme-primary);
+            border: 1px solid var(--ts-color-theme-primary);
+            border-radius: 100px;
+            &.active{
+                background-color: var(--ts-color-theme-primary);
+                color: var(--ts-color-common-white);
+            }
+        }
+    }
+}
+
+.destination-item-wrap{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    @include breakpoint(sm){
+        grid-template-columns: 1fr;
+    }
+}
+
+.destination-item-2{
+    height: 100%;
+    @include breakpoint(lg){
+        height: 450px;
+    }
+    .destination-thumb{
+        height: 100%;
+    }
+    .destination-content-2{
+        display: grid;
+        align-items: center;
+        grid-template-columns: 120px 1fr;
+        grid-gap: 20px;
+        @include breakpoint(sm){
+            grid-template-columns: 1fr;
+        }
+        .icon{
+            background-color: rgba(255, 255, 255, 0.4);
+            height: 120px;
+            width: 120px;
+            @include flex-center;
+            border-radius: 50%;
+        }
+    }
+}
+
+// Destination 3
+
+.destination-wrap-3{
+    .destination-item{
+        .overlay{
+            background: linear-gradient(180deg, rgba(5, 7, 60, 0) 0%, #05073C 100%);
+            opacity: 0.5;
+        }
+        .destination-content{
+            .title{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 0;
+            }
+            span{
+                display: none;
+            }
+        }
+    }
+    .destination-item-wrap-4{
+        .destination-item{
+            &:not(:last-of-type){
+                margin-bottom: 24px;
+            }
+            .destination-thumb{
+                height: 240px;
+            }
+        }
+    }
+    .destination-item-wrap-3{
+        .destination-item{
+            &:not(:last-of-type){
+                margin-bottom: 24px;
+            }
+            .destination-thumb{
+                height: 240px;
+            }
+        }
+        .destination-item-wrap-2{
+            .destination-item{
+                &:not(:last-of-type){
+                    margin-bottom: 24px;
+                }
+                .destination-thumb{
+                    height: 240px;
+                }
+            }
+        }
+    }
+}
+
+.destination-item-3{
+    height: 504px;
+    @include breakpoint(sm){
+        height: 400px;
+    }
+    .destination-thumb{
+        height: 100%;
+        img{
+            height: 100%;
+        }
+    }
+}
+
+
+// Destination Details
+
+.destination-details-content{
+    .destination-details-img-wrap{
+        @include flex-vertical-center;
+        column-gap: 24px;
+        @include breakpoint(sm){
+            flex-wrap: wrap;
+            row-gap: 15px;
+        }
+    }
+    blockquote{
+        .content{
+            p{
+                color: var(--ts-color-theme-primary);
+            }
+        }
+    }
+    .destination-details-box{
+        background-color: #F6F6F6;
+        padding: 40px 30px;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        @include breakpoint(sm){
+            padding: 40px 20px;
+        }
+        .box-title{
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .box-list-wrap{
+            @include flex-vertical-center;
+            column-gap: 50px;
+            @include breakpoint(sm){
+                flex-wrap: wrap;
+                row-gap: 15px;
+            }
+            ul{ 
+                li{
+                    @include flex-vertical-center;
+                    &:not(:last-of-type){
+                        margin-bottom: 15px;
+                    }
+                    i{
+                        background-color: var(--ts-color-heading-primary);
+                        color: var(--ts-color-common-white);
+                        font-size: 12px;
+                        height: 30px;
+                        width: 30px;
+                        @include flex-center;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        @include transition(all 0.3s ease-in-out);
+                    }
+                    span{
+                        color: var(--ts-color-heading-primary);
+                        font-size: 18px;
+                        font-weight: 400;
+                        display: inline-block;
+                        @include breakpoint(sm){
+                            font-size: 14px;
+                        }
+                        &.child-1{
+                            margin-right: 20px;
+                        }
+                    }
+                    &:hover{
+                        i{
+                            background-color: var(--ts-color-theme-primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* !END: Destination CSS */

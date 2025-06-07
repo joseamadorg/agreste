@@ -1,0 +1,146 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+    START: Team CSS
+----------------------------------------*/
+
+.team-item{
+    height: 580px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding: 0px 15px 35px 20px;
+    @include breakpoint(md){
+        max-width: 768px;
+        width: 100%;
+    }
+    @include breakpoint(sm){
+        max-width: 320px;
+        width: 100%;
+        height: auto;
+    }
+    .team-item-shape{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .team-img-wrap{
+        max-width: 340px;
+        width: 100%;
+        height: 458px;
+        position: relative;
+        position: absolute;
+        bottom: 110px;
+        left: 20px;
+        @include breakpoint(xl){
+            max-width: 276px;
+        }
+        @include breakpoint(sm){
+            max-width: 200px;
+        }
+        .main-img{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            max-width: 305px;
+            width: 100%;
+            z-index: 1;
+            @include breakpoint(xl){
+                height: 94%;
+            }
+            @include breakpoint(sm){
+                height: 66%;
+            }
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .shape{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .hover-shape{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            visibility: hidden;
+            opacity: 0;
+            @include transition(all 0.3s ease-in-out);
+        }
+    }
+    .team-content{
+        .title{
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 7px;
+        }
+        span{
+            font-family: var(--ts-ff-body);
+            color: var(--ts-color-theme-primary);
+            line-height: 1;
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+    .team-social-wrap{
+        position: relative;
+        z-index: 1;
+        .team-social{
+            list-style: none;
+            margin-bottom: 40px;
+            @include breakpoint(xl){
+                margin-bottom: 20px;
+            }
+            li{
+                &:not(:last-of-type){
+                    margin-bottom: 20px;
+                    @include breakpoint(xl){
+                        margin-bottom: 10px;
+                    }
+                }
+                a{
+                    background-color: var(--ts-color-common-white);
+                    color: var(--ts-color-theme-primary);
+                    height: 45px;
+                    width: 45px;
+                    @include flex-center;
+                    border-radius: 50%;
+                    border: 1px solid var(--ts-color-theme-primary);
+                    &:hover{
+                        background-color: var(--ts-color-theme-primary);
+                        color: var(--ts-color-common-white);
+                    }
+                }
+            }
+        }
+        .expand{
+            button{
+                background-color: var(--ts-color-theme-primary);
+                color: var(--ts-color-common-white);
+                height: 45px;
+                width: 45px;
+                @include flex-center;
+                border-radius: 50%;
+            }
+        }
+    }
+    &:hover{
+        .team-img-wrap{
+            .hover-shape{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/* !END: Team CSS */
