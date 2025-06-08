@@ -1,0 +1,440 @@
+/* Style for the container */
+.akd-about-menu-page {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style for the logo */
+.akd-logo img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 35px;
+	position:relative;
+	z-index:1;
+}
+
+/* Style for the title */
+.akd-menu-page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style for the description */
+/* .hostiko-menu-page-desc {
+    margin-bottom: 20px;
+} */
+
+/* Style for the button */
+.akd-menu-page-btn a {
+display: inline-block;
+    padding: 17px 56px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+	position:relative;
+	z-index:1;
+}
+
+.akd-menu-page-btn a:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the notes */
+.akd-menu-page-notes {
+    font-style: italic;
+}
+
+.akd-theme-screenshot {
+    float: left;
+    margin-right: 20px;
+}
+
+.akd-theme-screenshot img {
+    max-width: 189px;
+    height: auto;
+}
+
+.akd-theme-info {
+    overflow: hidden;
+}
+
+.akd-theme-info h2 {
+    margin-top: 0;
+}
+
+.akd-theme-info p {
+    margin-bottom: 10px;
+}
+
+/* styling */
+.akd-dashboard-card .akd-menu-page-notes p {
+    margin-bottom: 0;
+}
+.akd-dashboard-card #wpbody-content{
+	display: flex;
+	/* align-items: flex-end; */
+	justify-content: center;
+	/* height: calc(100vh - 32px); */
+	padding-bottom: 0;
+    flex-direction: column;
+}
+
+.akd-dashboard-card .akd-about-menu-page {
+    padding: 96px 104px;
+    border-radius:0;
+    max-width: 100%;
+    width: 100%;
+	position: relative;
+    height: 508px;
+    text-align: left;
+	background:#fff;
+}
+.akd-dashboard-card .akd-about-menu-page:after {
+    content: "";
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background:url('../../assets/img/bg-img.png') no-repeat 100%;
+    width: 100%;
+    height: 100%;
+}
+.akd-dashboard-card .akd-menu-page-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 0;
+    line-height: 30px;
+	font-family: "Inter", sans-serif;
+	position:relative;
+	z-index:1;
+}
+.akd-dashboard-card .akd-menu-page-desc{
+    margin-bottom: 20px;
+}
+.akd-dashboard-card .akd-menu-page-desc p {
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0 0 15px;
+	font-weight:400;
+	font-family: "Inter", sans-serif;
+	position:relative;
+	z-index:1;
+}
+#wpcontent {
+    padding-right: 20px;
+}
+/* Welcome to wordpress  */
+.update-nag {
+    width: 96.7%;
+}
+.akd-theme-info h2{
+	font-size: 30px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-bottom: 22px;
+	font-family: "Inter", sans-serif;
+}
+.akd-theme-info p {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 12px;
+    margin-top: 0;
+    padding: 0;
+}
+p.akd-label {
+    padding: 11px 20px;
+    margin: 0 0 12px;
+    background: #fef9f1;
+    display: inline-block;
+    border: 1px solid #fac678;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+.wp-core-ui .plugin-btn a {
+    text-decoration: none;
+    background: #007aff;
+    border-color: #007aff;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 12px 15px
+}
+.notice.notice-info.is-dismissible {
+    padding: 18px 32px 30px;
+    display: flex;
+    align-items: center;
+	flex-wrap:wrap;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+	    margin-top: 0;
+}
+.akd-theme-screenshot img {
+    border-radius: 8px;
+	    max-width: 233px;
+}
+.notice-dismiss:before{
+	font-size:24px;
+	color:#007aff;
+}
+/* .wrap h1{
+	    background: #fff;
+    padding: 24px 32px 0;
+    border-left: 4px solid #72aee6;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+    color: #000;
+} */
+
+.akd-theme-screenshot{
+	position:relative;
+	    margin-right: 40px;
+}
+.akd-theme-screenshot:after {
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: rgb(0 0 0 / 60%);
+    border-radius: 8px;
+	transition:all 0.5s ease-in-out;
+}
+.akd-theme-screenshot:hover:after{
+	height:100%;
+}
+.akd-theme-screenshot h6 {
+    margin: 0;
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0;
+}
+.akd-theme-screenshot:hover h6{
+	opacity:1;
+}
+
+
+
+.wp-header-end{
+    margin: 5px 0px;
+}
+.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary:focus{
+	box-shadow: none;
+}
+
+/* Welcome to wordpress  */
+@media only screen and (max-width: 1440px) {
+	.akd-dashboard-card .akd-about-menu-page {
+    padding: 40px;
+}
+	
+.akd-dashboard-card .akd-about-menu-page:after {
+    background-size: contain;
+}
+	.wrap {
+    margin: 10px 0 0 2px;
+}
+}
+
+@media only screen and (max-width: 1199px) {
+	.akd-dashboard-card .akd-about-menu-page {
+    padding: 40px;
+}
+	
+.akd-dashboard-card .akd-about-menu-page:after {
+    width: 100%;
+    background-size: contain;
+}
+	.akd-dashboard-card .akd-menu-page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+	.akd-menu-page-btn a {
+    padding: 16px 56px;
+    font-size: 16px;
+}
+	.akd-theme-info h2 {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 12px;
+}
+	.notice.notice-info.is-dismissible {
+    padding: 18px 20px 30px;
+}
+	.wrap h1 {
+    padding: 24px 20px 0;
+}
+	.akd-theme-screenshot img {
+    max-width: 164px;
+}
+	.akd-theme-screenshot {
+    margin-right: 20px;
+}
+}
+
+@media only screen and (max-width: 991px) {
+	    .wrap {
+        margin-right: 0;
+    }
+.update-nag {
+    width: 96%;
+}
+
+	    .notice.notice-info.is-dismissible {
+        text-align: center;
+    }
+	    .akd-theme-screenshot {
+        text-align: center;
+        margin: 0 auto;
+    }
+	.akd-theme-info{
+		    width: 100%;
+	}
+	    .akd-theme-info h2 {
+        font-size: 24px;
+        line-height: 26px;
+        margin-bottom: 14px;
+    }
+	.akd-theme-info p {
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 14px;
+}
+	    p.akd-label {
+        font-size: 14px;
+        line-height: 14px;
+    }
+	.wp-core-ui .plugin-btn a {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 13px 19px;
+    }
+	.notice.notice-info.is-dismissible {
+        padding: 18px 20px 30px;
+        text-align: center;
+        gap: 20px;
+    }
+	    .akd-theme-screenshot img {
+        max-width: 200px;
+    }
+	.wrap h1 {
+    font-size: 22px;
+}
+
+}
+@media only screen and (max-width: 767px) {
+	    .wrap h1 {
+        font-size: 20px;
+        padding: 20px 20px 0;
+    }
+	.akd-theme-info h2 {
+        font-size: 22px;
+        line-height: 24px;
+        margin-bottom: 12px;
+    }
+	    p.akd-label {
+        font-size: 12px;
+        line-height: 12px;
+    }
+	
+}
+
+@media only screen and (max-width: 783px) {
+	.akd-dashboard-card #wpbody-content {
+    height: calc(100vh - 46px);
+}
+	.akd-dashboard-card .akd-logo img {
+    margin-bottom: 12px;
+}
+	.akd-dashboard-card .akd-menu-page-title {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+	.akd-dashboard-card .akd-about-menu-page {
+    padding: 40px;
+}
+	.akd-dashboard-card .auto-fold #wpcontent {
+    padding-left: 0;
+}
+	.akd-menu-page-btn a {
+    padding: 15px 50px;
+}
+	.akd-dashboard-card .akd-menu-page-desc p {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 22px;
+}
+	.akd-dashboard-card .akd-about-menu-page:after {
+		display:block;
+    width: 100%;
+       height: 375px;
+    background-size: contain;
+}
+
+}
+@media only screen and (max-width: 575px) {
+	.akd-dashboard-card .akd-menu-page-desc p br{
+		display:none;
+	}
+	.akd-dashboard-card .akd-about-menu-page:after {
+    height: 224px;
+}
+	.akd-dashboard-card .akd-about-menu-page {
+    max-width: 260px;
+    padding: 30px;
+}
+	.akd-dashboard-card .akd-logo img {
+    margin-bottom: 10px;
+}
+	.akd-dashboard-card .akd-menu-page-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+	.akd-dashboard-card .akd-menu-page-btn a {
+    padding: 10px 37px 12px;
+		    font-size: 14px;
+}
+	.akd-theme-info h2 {
+        font-size: 18px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+	    .akd-theme-info p {
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 13px;
+    }
+	    p.akd-label {
+        font-size: 12px;
+        line-height: 14px;
+    }
+	    .wp-core-ui .plugin-btn a {
+        font-size: 12px;
+        line-height: 12px;
+        padding: 11px 19px;
+    }
+	.notice-dismiss:before {
+    font-size: 20px;
+}
+}

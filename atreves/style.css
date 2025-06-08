@@ -1,0 +1,78 @@
+/*!
+Theme Name: Atreves
+Theme URI: http://designingmedia.com/atreves
+Author: Designing Media
+Author URI: http://designingmedia.com
+Description: Transform your space with "Atreves," a premium WordPress theme crafted for showcasing the best in architectural and interior solutions. Atreves offers a sophisticated and responsive design that ensures an optimal viewing experience on any device. With its user-friendly interface and versatile customization options, users can effortlessly create stunning and effective websites that highlight their unique architectural and interior projects. Featuring an array of pre-designed elements and dynamic layouts, building an impressive and professional online presence has never been easier. Elevate your design portfolio with Atreves and inspire with elegance.
+Version: 1.2
+Requires PHP: 7.0
+Tested up to: 5.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: atreves
+Tags: architecture, interior design, responsive, customizable, WordPress, website, design, modern, professional, interactive, portfolio, elegant, projects, renovation, home decor, creative, space planning, building, construction, digital portfolio.
+*/
+
+
+.no-breadcrumbs.page-title-area:after{ display: none; }
+
+.navbar-area .nav-container .navbar-collapse #menu-all-pages > li + li{ margin-left: 10px; }
+.navbar-area .nav-container .navbar-collapse #menu-all-pages li{ padding: 0 7px; }
+/*Unit test css*/
+.navbar-area .nav-container .logo a.retina-logo{
+	display: none;
+}
+.wpcf7-form-control-wrap {
+    display: block;
+	z-index:0;
+}
+.wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output, .wpcf7 form.sent .wpcf7-response-output {
+    margin: 1em 0em 0em;
+    font-size: 14px;
+    line-height: 1.5em;
+    text-align: center;
+}
+.wpcf7-not-valid-tip {
+    color: #1BACDC;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: normal;
+    display: block;
+    margin-top: 0;
+    position: relative;
+    width: auto;
+    display: block;
+    left: 0;
+    border: none;
+    padding: 0;
+    top: 0px;
+}
+.wpcf7-spinner {
+    display: none;
+}
+.wpcf7 form.invalid .wpcf7-response-output {
+    display: none;
+}
+.wpcf7 form.sent .wpcf7-response-output{
+    color: #46b450;
+}
+
+@media only screen and (max-width: 1366px) {
+    .wpcf7-not-valid-tip {
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output, .wpcf7 form.sent .wpcf7-response-output {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output, .wpcf7 form.sent .wpcf7-response-output {
+        font-size: 12px;
+    }
+}
+

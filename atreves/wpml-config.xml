@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wpml-config>
+    <custom-types>
+        <custom-type translate="1">best-places</custom-type>
+        <custom-type translate="1">elementor_library</custom-type>
+        <custom-type translate="1">our_services</custom-type>
+        <custom-type translate="1">our-portfolio</custom-type>
+        <custom-type translate="1">product</custom-type>
+        <custom-type translate="1">shop_order_placehold</custom-type>
+        <custom-type translate="1">wpcf7_contact_form</custom-type>
+    </custom-types>
+
+    <!-- Custom Taxonomies -->
+    <custom-taxonomies>
+        <custom-taxonomy translate="1">elementor_library_type</custom-taxonomy>
+        <custom-taxonomy translate="1">product_cat</custom-taxonomy>
+        <custom-taxonomy translate="1">product_type</custom-taxonomy>
+        <custom-taxonomy translate="1">product_visibility</custom-taxonomy>
+    </custom-taxonomies>
+
+    <!-- Custom Fields -->
+    <custom-fields>
+        <custom-field action="translate">post_thumbnail</custom-field>
+        <custom-field action="translate">total_days</custom-field>
+        <custom-field action="translate">total_persons</custom-field>
+        <custom-field action="translate">total_price</custom-field>
+        <custom-field action="translate">total_places</custom-field>
+        <custom-field action="translate">total_rating</custom-field>
+        <custom-field action="translate">dbt_text</custom-field>
+        <custom-field action="translate">total_sales</custom-field>
+    </custom-fields>
+
+    <!-- Widgets -->
+    <widgets>
+        <widget translate="1">widget_block</widget>
+        <widget translate="1">widget_calendar</widget>
+        <widget translate="1">widget_categories</widget>
+        <widget translate="1">widget_custom_html</widget>
+        <widget translate="1">widget_media_audio</widget>
+        <widget translate="1">widget_media_gallery</widget>
+        <widget translate="1">widget_media_image</widget>
+        <widget translate="1">widget_media_video</widget>
+        <widget translate="1">widget_meta</widget>
+        <widget translate="1">widget_nav_menu</widget>
+        <widget translate="1">widget_pages</widget>
+        <widget translate="1">widget_recent-comments</widget>
+        <widget translate="1">widget_recent-posts</widget>
+        <widget translate="1">widget_rss</widget>
+        <widget translate="1">widget_search</widget>
+        <widget translate="1">widget_tag_cloud</widget>
+        <widget translate="1">widget_text</widget>
+        <widget translate="1">widget_woocommerce_layered_nav</widget>
+        <widget translate="1">widget_woocommerce_layered_nav_filters</widget>
+        <widget translate="1">widget_woocommerce_price_filter</widget>
+        <widget translate="1">widget_woocommerce_product_categories</widget>
+        <widget translate="1">widget_woocommerce_product_search</widget>
+        <widget translate="1">widget_woocommerce_product_tag_cloud</widget>
+        <widget translate="1">widget_woocommerce_products</widget>
+        <widget translate="1">widget_woocommerce_rating_filter</widget>
+        <widget translate="1">widget_woocommerce_recent_reviews</widget>
+        <widget translate="1">widget_woocommerce_recently_viewed_products</widget>
+        <widget translate="1">widget_woocommerce_top_rated_products</widget>
+        <widget translate="1">widget_woocommerce_widget_cart</widget>
+    </widgets>
+
+    <!-- Menus -->
+    <navigation>
+        <menu translate="1">Primary Menu</menu>
+    </navigation>
+
+     <admin-texts>
+        <key name="siteurl">siteurl</key>
+        <key name="home">home</key>
+        <key name="blogname">blogname</key>
+        <key name="blogdescription">blogdescription</key>
+        <key name="admin_email">admin_email</key>
+        <key name="date_format">date_format</key>
+        <key name="time_format">time_format</key>
+        <key name="links_updated_date_format">links_updated_date_format</key>
+    </admin-texts>
+
+</wpml-config>
