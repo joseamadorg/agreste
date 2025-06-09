@@ -6944,6 +6944,19 @@ input::placeholder, textarea::placeholder {
   text-decoration: underline !important;
   color: #007f80;
   box-shadow: none !important;
+  background-color: white !important;
+  border: none !important;
+}
+
+.filter-group .filter-btn {
+  background-color: #fff; 
+  color: #028081;
+  border: none !important;
+  border-radius: 30px;
+  margin: 0 6px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
   .page-header .page-header-content .title {
     line-height: 1.3em;
