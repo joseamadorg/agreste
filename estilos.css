@@ -2686,7 +2686,7 @@ START: Header CSS
   }
 }
 .header .top-bar .top-bar-inner .top-bar-right .top-bar-list li i {
-  color: var(--ts-color-theme-primary);
+  color: var(--ts-color-theme-secondary);
   font-size: 14px;
 }
 .header .primary-header-inner {
@@ -4728,6 +4728,18 @@ START: Header CSS
 .tour-item-2 .tour-thumb img {
   border-radius: 8px;
 }
+
+.category-home {
+  background-color: var(--ts-color-theme-primary);
+  color: var(--ts-color-common-white);
+  position: relative;
+  font-size:1rem;
+  font-weight: 400;
+  padding: 5px 20px;
+  border-radius: 4px;
+}
+
+
 .tour-item-2 .tour-thumb .category {
   background-color: var(--ts-color-theme-primary);
   color: var(--ts-color-common-white);
