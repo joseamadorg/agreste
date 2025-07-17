@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mapa Interactivo - EL AGRESTE</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    #map { height: 99vh; width: 100%; }
+    .popup-img { width: 220px; display: block; margin-bottom: 5px; border-radius: 8px; }
+    .filter-control {
+      background: white;
+      padding: 6px;
+      border-radius: 4px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    }
+    .filter-control label {
+      display: block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map');
+    map.fitBounds([
+      [-42.0, -68.5], // Frontera norte de Chubut
+      [-55.0, -74.0]  // Tierra del Fuego
+    ]);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    const customIcon = L.divIcon({
+      html: '<div style="background-color: #28a745; width: 18px; height: 18px; border-radius: 50%; border: 2px solid white;"></div>',
+      iconSize: [18, 18],
+      className: ''
+    });
+
+    const locations = [
+      {name:'Torres del Paine', coords:[-50.9423262,-73.4093628], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/AdobeStock_825514215-scaled-e1749491264905.jpeg', category:'Ecoturismo'},
+      {name:'Rancho Patagónico', coords:[-47.6747698,-68.4648949], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/rancho_patagonico_instagram-e1749500577533.jpg', category:'Ecoturismo'},
+      {name:'Patagonia Azul', coords:[-44.9298898,-65.7361097], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/Humpback-whale-in-Patagonia-Azul-ph-Maike-Friedrich-Rewilding-Argentina-1459x1080-1-e1749488876535.jpg', category:'Ecoturismo'},
+      {name:'Río Corcovado', coords:[-43.534127,-71.4668745], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/rafting_corcovado.webp', category:'Aventura'},
+      {name:'Lago Vintter', coords:[-43.9685257,-71.5565186], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/IMG-20210323-WA0004.jpg', category:'Pesca'},
+      {name:'Cerro Riñón', coords:[-43.9765737,-71.6333255], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/cris_mayora_rio_pico-e1749484648686.jpg', category:'Aventura'},
+      {name:'Bosque Petrificado', coords:[-45.8141966,-69.0725084], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/bosque_sarmiento.webp', category:'Ecoturismo'},
+      {name:'Lago Musters', coords:[-45.397048,-69.1666437], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/IMG-20210406-WA0032-e1749440930752.jpg', category:'Pesca'},
+      {name:'Reserva Laguna La Zeta', coords:[-42.894017,-71.352953], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/reseva-esquel.jpg', category:'Ecoturismo'},
+      {name:'Trevelin', coords:[-43.1697654,-71.5104235], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/trevelin-scaled.jpeg', category:'Ecoturismo'},
+      {name:'Piedra Parada', coords:[-42.7233892,-70.5284995], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/11626414774_7cbfb12758_b.webp', category:'Aventura'}
+    ];
+
+    const groups = {
+      'Ecoturismo': [],
+      'Aventura': [],
+      'Pesca': []
+    };
+
+    locations.forEach(loc => {
+      const marker = L.marker(loc.coords, {icon: customIcon})
+        .bindPopup(`<strong>${loc.name}</strong><br><img src="${loc.img}" class="popup-img" alt="${loc.name}">`);
+      marker.addTo(map);
+      groups[loc.category].push(marker);
+    });
+
+    const controlDiv = L.control({ position: 'topright' });
+    controlDiv.onAdd = function() {
+      const div = L.DomUtil.create('div','filter-control');
+      div.innerHTML = `
+        <label><input type="checkbox" data-cat="Ecoturismo" checked> Ecoturismo | Ecotourism</label>
+        <label><input type="checkbox" data-cat="Aventura" checked> Aventura | Adventure</label>
+        <label><input type="checkbox" data-cat="Pesca" checked> Pesca | Fishing</label>
+      `;
+      L.DomEvent.disableClickPropagation(div);
+      return div;
+    };
+    controlDiv.addTo(map);
+
+    document.querySelectorAll('.filter-control input').forEach(input => {
+      input.addEventListener('change', e => {
+        const cat = e.target.dataset.cat;
+        groups[cat].forEach(marker => {
+          if (e.target.checked) marker.addTo(map);
+          else map.removeLayer(marker);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
