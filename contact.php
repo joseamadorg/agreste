@@ -30,7 +30,7 @@ if (
 }
 
 // 4. Configurar destinatario y asunto del email
-$recipient = "contacto@agrestepatagonia.com";
+$recipient = "contacto@agrestepatagonia.com, agrestecorreo@gmail.com";
 $subject   = "Mensaje de $fullname: $subject_input";
 
 // 5. Construir el cuerpo del correo
