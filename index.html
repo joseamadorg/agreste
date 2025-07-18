@@ -1004,6 +1004,7 @@
                      <div class="section-heading mb-30">
                          <h2 class="section-title" style="color: white;">¡Contáctanos!</h2>
                      </div>
+                     <div id="form-messages"></div>
                      <form action="contact.php" method="post" id="ajax_contact" class="form-horizontal">
                          <div class="form-group row">
                              <div class="col-md-6">
@@ -1108,7 +1109,49 @@
               });
             });
           </script>
+          <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('ajax_contact');
+                const messages = document.getElementById('form-messages');
 
+                form.addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  messages.innerHTML = ''; // limpia mensajes anteriores
+
+                  fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form)
+                  })
+                  .then(response => response.text().then(text => ({ status: response.status, text })))
+                  .then(data => {
+                    if (data.status === 200) {
+                      // Éxito
+                      messages.innerHTML = `
+                        <div class="alert alert-success">
+                          Gracias, su mensaje ha sido enviado. | Thank you! Your message has been sent.
+                        </div>
+                      `;
+                      form.reset();
+                    } else {
+                      // Error de validación o servidor
+                      messages.innerHTML = `
+                        <div class="alert alert-danger">
+                          ${data.text}
+                        </div>
+                      `;
+                    }
+                  })
+                  .catch(() => {
+                    // Error de conexión
+                    messages.innerHTML = `
+                      <div class="alert alert-danger">
+                        Hubo un problema con la conexión. | There was a connection problem.
+                      </div>
+                    `;
+                  });
+                });
+              });
+          </script>
 
 
 
