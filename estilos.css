@@ -2578,7 +2578,7 @@ START: Header CSS
   max-width: 1630px;
 }
 .header .top-bar {
-  background-color: #2a3b2d;
+  background-color: #1b3f34;
 }
 @media only screen and (max-width: 767px) {
   .header .top-bar {
@@ -3750,18 +3750,9 @@ START: Header CSS
   z-index: 5;
 }
 @media only screen and (max-width: 992px) {
-  .hero-content {
-    padding: 100px 0 40px 0;
-  }
   .vector {
     bottom: -20px;
   }
-}
-@media only screen and (max-width: 767px) {
-  .hero-content {
-    padding-top: 70px;
-  }
-  
 }
 
 .hero-content .section-heading .sub-heading {
@@ -3858,7 +3849,16 @@ START: Header CSS
   .hero-img-wrap {
     right: 0;
   }
+  
 }
+
+@media (min-width: 1399px) {
+  .hero-mobile-off{
+    display: block !important;
+  }
+  
+}
+
 @media only screen and (max-width: 992px) {
   .hero-img-wrap {
     max-width: 992px;
@@ -3867,9 +3867,27 @@ START: Header CSS
     right: 0;
   }
 }
-@media only screen and (max-width: 767px) {
-  .hero-img-wrap {
-    height: 485px;
+
+@media only screen and (max-width: 1023px) {
+   .hero-mobile-off{
+    display: none;
+   }
+}
+
+
+
+@media only screen and (max-width: 1440px) {
+  
+  .hero-3{
+    height: 435px !important;
+  }
+  .hero-actividad {
+    display: none !important;
+  }
+
+    .hero-text {
+      position: relative;
+      top: 0px !important; 
   }
 }
 .hero-img-wrap .hero-item {
@@ -4739,6 +4757,11 @@ START: Header CSS
   border-radius: 4px;
 }
 
+.dropdown-item.active, .dropdown-item:active {
+    color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color: #007f80 !important;
+}
 
 .tour-item-2 .tour-thumb .category {
   background-color: var(--ts-color-theme-primary);
