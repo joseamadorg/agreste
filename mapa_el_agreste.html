@@ -2,94 +2,293 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mapa Interactivo - EL AGRESTE</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    #map { height: 99vh; width: 100%; }
-    .popup-img { width: 220px; display: block; margin-bottom: 5px; border-radius: 8px; }
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+    .popup-img { width: 100%; max-width: 80%; border-radius: 8px; margin: 8px auto; display:block; }
     .filter-control {
-      background: white;
-      padding: 6px;
-      border-radius: 4px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+      background: #fff; padding: 8px 10px; border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15); font-family: system-ui, Arial, sans-serif; font-size: 14px;
     }
-    .filter-control label {
-      display: block;
-      cursor: pointer;
-    }
+    .filter-control h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
+    .filter-control label { display:flex; align-items:center; gap:8px; margin: 4px 0; cursor: pointer; user-select: none; }
+    .filter-control input { transform: translateY(1px); }
+    .leaflet-popup-content { max-width: 360px; }
+    .leaflet-container a { color: #006e6d; }
   </style>
 </head>
 <body>
   <div id="map"></div>
 
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    const map = L.map('map');
-    map.fitBounds([
-      [-42.0, -68.5], // Frontera norte de Chubut
-      [-55.0, -74.0]  // Tierra del Fuego
-    ]);
+    // --- Base map ---
+    const map = L.map('map', { zoomControl: true });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
+    // Ajuste inicial: frontera norte de Chubut hasta Tierra del Fuego
+    const chubutToTdFBounds = L.latLngBounds(
+      L.latLng(-41.8, -75.0), // aprox al norte/oeste
+      L.latLng(-55.2, -64.0)  // aprox al sur/este
+    );
+    map.fitBounds(chubutToTdFBounds);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    const customIcon = L.divIcon({
-      html: '<div style="background-color: #28a745; width: 18px; height: 18px; border-radius: 50%; border: 2px solid white;"></div>',
-      iconSize: [18, 18],
-      className: ''
-    });
+    // --- Estilo de marcador: círculo verde ---
+    function greenCircle(latlng) {
+      return L.circleMarker(latlng, {
+        radius: 8,
+        fillColor: '#2e7d32', // verde
+        color: '#ffffff',     // borde blanco
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.95
+      });
+    }
 
-    const locations = [
-      {name:'Torres del Paine', coords:[-50.9423262,-73.4093628], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/AdobeStock_825514215-scaled-e1749491264905.jpeg', category:'Ecoturismo'},
-      {name:'Rancho Patagónico', coords:[-47.6747698,-68.4648949], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/rancho_patagonico_instagram-e1749500577533.jpg', category:'Ecoturismo'},
-      {name:'Patagonia Azul', coords:[-44.9298898,-65.7361097], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/Humpback-whale-in-Patagonia-Azul-ph-Maike-Friedrich-Rewilding-Argentina-1459x1080-1-e1749488876535.jpg', category:'Ecoturismo'},
-      {name:'Río Corcovado', coords:[-43.534127,-71.4668745], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/rafting_corcovado.webp', category:'Aventura'},
-      {name:'Lago Vintter', coords:[-43.9685257,-71.5565186], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/IMG-20210323-WA0004.jpg', category:'Pesca'},
-      {name:'Cerro Riñón', coords:[-43.9765737,-71.6333255], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/cris_mayora_rio_pico-e1749484648686.jpg', category:'Aventura'},
-      {name:'Bosque Petrificado', coords:[-45.8141966,-69.0725084], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/bosque_sarmiento.webp', category:'Ecoturismo'},
-      {name:'Lago Musters', coords:[-45.397048,-69.1666437], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/IMG-20210406-WA0032-e1749440930752.jpg', category:'Pesca'},
-      {name:'Reserva Laguna La Zeta', coords:[-42.894017,-71.352953], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/reseva-esquel.jpg', category:'Ecoturismo'},
-      {name:'Trevelin', coords:[-43.1697654,-71.5104235], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/trevelin-scaled.jpeg', category:'Ecoturismo'},
-      {name:'Piedra Parada', coords:[-42.7233892,-70.5284995], img:'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/11626414774_7cbfb12758_b.webp', category:'Aventura'}
+    // --- Datos: categorías disponibles (bilingüe) ---
+    const CATEGORY_LABELS = {
+      "Ecoturismo": "Ecoturismo | Ecotourism",
+      "Aventura": "Aventura | Adventure",
+      "Pesca": "Pesca | Fishing",
+      "Gastronomía Local": "Gastronomía Local | Local Gastronomy",
+      "Senderismo": "Senderismo | Hiking",
+      "Fotografía": "Fotografía | Photography"
+    };
+
+    // --- Locaciones (con múltiples categorías) ---
+    // Orden popup: Título → Imagen → Descripción ES → Descripción EN → +Info
+    const LOCATIONS = [
+      {
+        name: "Torres del Paine – Chile",
+        coords: [-50.9423262, -73.4093628],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/AdobeStock_825514215-scaled-e1749491264905.jpeg",
+        url: "https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/",
+        es: "En el corazón del Parque Nacional Torres del Paine, en Chile, se encuentra una de las densidades más altas de pumas (Puma concolor puma) en el mundo —entre 3 y 7 individuos por cada 100 km²— gracias a su estricta protección y proyectos de convivencia con ganado local.",
+        en: "In the heart of Torres del Paine National Park in Chile lies one of the world's highest densities of pumas (Puma concolor puma)—between 3 and 7 individuals per 100 km²—thanks to strict protection and coexistence projects with local livestock."
+      },
+      {
+        name: "Rancho Patagónico – Santa Cruz",
+        coords: [-47.6747698, -68.4648949],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/361063536_3448042748780507_5247477360065200195_n-300x300.jpeg",
+        url: "https://agrestepatagonia.com/locations/rancho-patagonico-santa-cruz/",
+        es: "Ubicado en una estancia de más de 10.700ha diseñada al estilo de los años 40, el Rancho Patagónico ofrece una experiencia día completo (o más) que combina cabalgatas, cocina tradicional, actividades culturales y exploración geológica en un entorno virgen.",
+        en: "Located on an estate of more than 10,700 hectares styled after the 1940s, Rancho Patagónico offers a full-day (or longer) experience that combines horseback riding, traditional cuisine, cultural activities, and geological exploration in a pristine setting."
+      },
+      {
+        name: "Patagonia Azul – Chubut",
+        coords: [-44.5135675, -66.939753],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/356701_2_131653_raw-300x300.jpeg",
+        url: "https://agrestepatagonia.com/locations/recorrido-patagonia-azul-chubut/",
+        es: "En la transición entre la estepa patagónica y el Atlántico Sur, se extiende la Costa Azul, un corredor natural y cultural que forma parte del flamante Parque Interjurisdiccional Marino Costero Patagonia Azul. Este recorrido te sumerge en paisajes costeros vírgenes, fauna marina abundante y sitios históricos poco conocidos, todo en clave de conservación y descubrimiento.",
+        en: "Between the Patagonian steppe and the South Atlantic, the Costa Azul stretches out—a natural and cultural corridor that is part of the new Patagonia Azul Marine Coastal Interjurisdictional Park. This journey immerses you in pristine coastal landscapes, abundant marine fauna, and little-known historical sites—all focused on conservation and discovery."
+      },
+      {
+        name: "Rio Corcovado – Rio Pico",
+        coords: [-43.534127, -71.4668745],
+        categories: ["Aventura"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/rafting_corcovado.webp",
+        url: "https://agrestepatagonia.com/locations/rio-corcovado-rio-pico/",
+        es: "Sus rápidos cristalinos —alimentados por deshielos andinos y lagos de altura— convierten a este río en un destino destacado para rafting en la Patagonia, con secciones aptas para principiantes, familias y también para buscadores de adrenalina en grado medio.",
+        en: "Fed by Andean meltwater and highland lakes, its crystal-clear rapids make this river a top rafting destination in Patagonia, with sections suitable for beginners, families, and also for thrill-seekers looking for moderate-grade excitement."
+      },
+      {
+        name: "Lago Vintter – Rio Pico",
+        coords: [-43.9685257, -71.5565186],
+        categories: ["Pesca", "Gastronomía Local"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/08/pesca_7-300x300.jpg",
+        url: "https://agrestepatagonia.com/locations/lago-vintter-rio-pico/",
+        es: "Compartido entre Argentina y Chile, el Lago Vintter (o Palena, como se lo conoce del lado chileno) es un gigante turquesa rodeado de montañas, estepa y bosques, reconocido por su calidad excepcional de pesca con mosca y spinning.",
+        en: "Shared between Argentina and Chile, Lake Vintter (or Palena, as it is known on the Chilean side) is a turquoise giant surrounded by mountains, steppe, and forests—renowned for exceptional fly and spin fishing quality."
+      },
+      {
+        name: "Cerro Riñón – Rio Pico",
+        coords: [-43.9765737, -71.6333255],
+        categories: ["Senderismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/02.Galeria-04-jpg-300x300.webp",
+        url: "https://agrestepatagonia.com/locations/cerro-rinon-rio-pico/",
+        es: "En el extremo suroeste de Chubut, en las inmediaciones del tranquilo pueblo de Río Pico, se alza el Cerro Riñón, un emblema del senderismo patagónico que combina esfuerzo, belleza y aventura en dosis perfectas.",
+        en: "In the southwestern tip of Chubut, near the quiet town of Río Pico, stands Cerro Riñón, a symbol of Patagonian hiking that perfectly blends challenge, beauty, and adventure."
+      },
+      {
+        name: "Bosque Petrificado Sarmiento",
+        coords: [-45.8141966, -69.0725084],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/bosque_sarmiento.webp",
+        url: "https://agrestepatagonia.com/locations/bosque-petrificado-sarmiento/",
+        es: "A solo 30 km de Sarmiento, en plena estepa patagónica, se encuentra uno de los yacimientos fósiles más sorprendentes de Argentina: el Bosque Petrificado, un área protegida que conserva árboles convertidos en piedra desde hace más de 65 millones de años.",
+        en: "Just 30 km from Sarmiento, in the heart of the Patagonian steppe, lies one of Argentina's most astonishing fossil sites: the Petrified Forest, a protected area preserving trees turned to stone more than 65 million years ago."
+      },
+      {
+        name: "Lago Musters",
+        coords: [-45.397048, -69.1666437],
+        categories: ["Pesca", "Gastronomía Local"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/20220420_195957-300x300.jpg",
+        url: "https://agrestepatagonia.com/locations/pesca-lago-musters-sarmiento/",
+        es: "Desde la pequeña ciudad de Sarmiento, ubicada entre formaciones geológicas únicas y lagos de origen glacial, parte una de las experiencias más auténticas para amantes de la pesca deportiva: un día completo en el imponente Lago Musters, joya acuática de la Patagonia austral.",
+        en: "From the small city of Sarmiento—nestled among unique geological formations and glacial lakes—begins one of the most authentic experiences for sport fishing lovers: a full day at the majestic Lake Musters, a true aquatic gem of southern Patagonia."
+      },
+      {
+        name: "Reserva Laguna La Zeta",
+        coords: [-42.894017, -71.352953],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/reseva-esquel.jpg",
+        url: "https://agrestepatagonia.com/locations/reserva-natural-esquel/",
+        es: "A solo 4km de Esquel, con una laguna central rodeada de senderos y bosques de ñires y lengas, este espacio protegido es uno de los grandes orgullos de la comunidad esquelense, ideal para caminatas, picnics, deportes no motorizados y conexión consciente con la naturaleza. Ideal para la familia.",
+        en: "Just 4 km from Esquel, featuring a central lagoon surrounded by trails and forests of ñires and lengas, this protected space is one of the community's proudest natural spots—perfect for walks, picnics, non-motorized sports, and mindful nature connection. Great for families."
+      },
+      {
+        name: "Trevelin",
+        coords: [-43.1697654, -71.5104235],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/trevelin-scaled.jpeg",
+        url: "https://agrestepatagonia.com/locations/trevelin-esquel/",
+        es: "En el extremo noroeste de Chubut, a solo 25 km de Esquel y al pie de la majestuosa Cordillera de los Andes, se encuentra Trevelin, un pueblo encantador donde la tradición galesa se fusiona con los paisajes más vibrantes de la Patagonia.",
+        en: "In the far northwest of Chubut, just 25 km from Esquel and at the foot of the majestic Andes, lies Trevelin—a charming village where Welsh tradition blends with the most vibrant landscapes of Patagonia."
+      },
+      {
+        name: "Piedra Parada",
+        coords: [-42.7233892, -70.5284995],
+        categories: ["Senderismo", "Aventura"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/pexels-victoria-marzullo-310266016-13581290-300x300.jpg",
+        url: "https://agrestepatagonia.com/locations/escalada-en-piedra-parada-esquel/",
+        es: "Este monolito de origen volcánico de más de 200 metros de altura, solitario y majestuoso, se levanta en medio de la estepa patagónica como un faro geológico. A su alrededor, el paisaje revela un antiguo cráter colapsado de más de 25 km de diámetro, hoy convertido en un cañadón lleno de vida, historia y silencio.",
+        en: "This volcanic monolith, over 200 meters tall, rises solitary and majestic in the Patagonian steppe like a geological beacon. Surrounding it is the collapsed crater of an ancient volcano—over 25 km in diameter—now a canyon full of life, history, and silence."
+      },
+      {
+        name: "Rocas Coloradas – Comodoro",
+        coords: [-45.6056746, -67.3321869],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/Rocas-Coloradas-Chubut-5-e1752703998481-300x300.webp",
+        url: "https://agrestepatagonia.com/locations/rocas-coloradas-comodoro/",
+        es: "A solo 20 km al norte de Comodoro Rivadavia, la Área Natural Protegida Rocas Coloradas cubre 95 000 ha que combinan aridez desértica, plataformas marinas, bosques petrificados y una biodiversidad costera sorprendente. Aquí, la estepa se enfrenta al mar y la historia se lee en la roca misma.",
+        en: "Just 20 km north of Comodoro Rivadavia, the Rocas Coloradas Protected Natural Area spans 95,000 hectares that combine desert aridity, marine platforms, petrified forests, and an astonishing coastal biodiversity. Here, the steppe meets the sea and history is written in stone."
+      },
+      {
+        name: "Puerto Deseado – Santa Cruz",
+        coords: [-47.746653, -65.9328953],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/isla_pingueino_01_sq-300x300.webp",
+        url: "https://agrestepatagonia.com/locations/puerto-deseado-santa-cruz/",
+        es: "Esta Travesía a Puerto Deseado y su extraordinaria biodiversidad marina explora desde playas volcánicas y faros históricos, hasta colonias de pingüinos y cañadones steppenses que tocaron los pasos del mismísimo Charles Darwin. Estos recorridos son la puerta de entrada a una Patagonia intacta, combinando fauna, historia y paisajes que no se olvidan.",
+        en: "This journey to Puerto Deseado and its extraordinary marine biodiversity explores volcanic beaches, historic lighthouses, penguin colonies, and steppeland canyons once trodden by Charles Darwin himself. These routes are a gateway to an untouched Patagonia—combining wildlife, history, and unforgettable scenery."
+      },
+      {
+        name: "Campamento Darwin – Santa Cruz",
+        coords: [-47.8867134, -66.456055],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/07.07.2025_16.17.44_REC.webp",
+        url: "https://agrestepatagonia.com/locations/campamento-darwin-santa-cruz/",
+        es: "Ubicado a la vera del estuario del Río Deseado, en la antigua Estancia Cerro del Paso, el Campamento Darwin recupera el espíritu del naturalista durante su viaje en el Beagle, ofreciendo una experiencia inmersiva en la estepa virgen, la avifauna y la historia de la Patagonia profunda.",
+        en: "Located on the banks of the Río Deseado estuary, at the historic Estancia Cerro del Paso, Campamento Darwin revives the spirit of the naturalist’s voyage on the Beagle, offering an immersive experience of untouched steppe, birdlife, and deep Patagonian history."
+      },
+      {
+        name: "Bosque Petrificado Jaramillo – Santa Cruz",
+        coords: [-47.6720976, -67.9943113],
+        categories: ["Ecoturismo", "Fotografía"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/Bosque_Petrificado_12-300x300.jpeg",
+        url: "https://agrestepatagonia.com/locations/bosque-jaramillo-santa-cruz/",
+        es: "Este bosque petrificado es único: troncos de Araucaria mirabilis de hasta 30 m de largo y 3 m de diámetro yacen convertidos en piedra, como gigantes mudos testigos de un pasado profundo.",
+        en: "This petrified forest is unique: trunks of Araucaria mirabilis up to 30 meters long and 3 meters in diameter lie turned to stone, like silent giants bearing witness to a distant past."
+      },
+      {
+        name: "Cerro San Bernardo - Sarmiento",
+        coords: [-45.6340433, -69.4690715],
+        categories: ["Senderismo", "Aventura"],
+        img: "https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/79282712Master-e1751924508968.webp",
+        url: "https://agrestepatagonia.com/locations/cerro-san-bernardo-sarmiento/",
+        es: "Con una altitud cercana a los 1 100 m s.n.m., esta formación montañosa ofrece una experiencia exigente, inmersiva y solitaria, ideal para turistas nacionales e internacionales que buscan un senderismo auténtico y desafiante.",
+        en: "With an elevation close to 1,100 meters above sea level, this mountainous formation offers a demanding, immersive, and solitary experience—ideal for national and international tourists seeking authentic and challenging hiking routes."
+      }
     ];
 
-    const groups = {
-      'Ecoturismo': [],
-      'Aventura': [],
-      'Pesca': []
-    };
-
-    locations.forEach(loc => {
-      const marker = L.marker(loc.coords, {icon: customIcon})
-        .bindPopup(`<strong>${loc.name}</strong><br><img src="${loc.img}" class="popup-img" alt="${loc.name}">`);
-      marker.addTo(map);
-      groups[loc.category].push(marker);
+    // --- Crear marcadores y guardarlos para filtrado ---
+    const markers = []; // { marker, categories }
+    LOCATIONS.forEach(loc => {
+      const m = greenCircle(loc.coords).addTo(map);
+      const html = `
+        <h3>${loc.name}</h3>
+        <img src="${loc.img}" alt="${loc.name}" class="popup-img"/>
+        <p>${loc.es}</p>
+        <p><em>${loc.en}</em></p>
+        <a href="${loc.url}" target="_blank">+ Info</a>
+      `;
+      m.bindPopup(html);
+      markers.push({ marker: m, categories: new Set(loc.categories), name: loc.name });
     });
 
-    const controlDiv = L.control({ position: 'topright' });
-    controlDiv.onAdd = function() {
-      const div = L.DomUtil.create('div','filter-control');
-      div.innerHTML = `
-        <label><input type="checkbox" data-cat="Ecoturismo" checked> Ecoturismo | Ecotourism</label>
-        <label><input type="checkbox" data-cat="Aventura" checked> Aventura | Adventure</label>
-        <label><input type="checkbox" data-cat="Pesca" checked> Pesca | Fishing</label>
-      `;
-      L.DomEvent.disableClickPropagation(div);
-      return div;
-    };
-    controlDiv.addTo(map);
+    // --- Control de filtros (bilingüe) ---
+    const FilterControl = L.Control.extend({
+      onAdd: function() {
+        const div = L.DomUtil.create('div', 'filter-control');
+        div.innerHTML = `
+          <h4>Filtrar por actividad | Filter by activities</h4>
+          ${Object.keys(CATEGORY_LABELS).map(cat => `
+            <label><input type="checkbox" data-cat="${cat}" checked> ${CATEGORY_LABELS[cat]}</label>
+          `).join('')}
+          <div style="margin-top:6px; display:flex; gap:6px; flex-wrap:wrap;">
+            <button id="btnAll" type="button">Todas | All </button>
+            <button id="btnNone" type="button">Reiniciar | Reset</button>
+          </div>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        return div;
+      }
+    });
 
-    document.querySelectorAll('.filter-control input').forEach(input => {
-      input.addEventListener('change', e => {
+    map.addControl(new FilterControl({ position: 'topright' }));
+
+    // Estado de filtros seleccionados (inicio: todos)
+    const activeCats = new Set(Object.keys(CATEGORY_LABELS));
+
+    function updateVisibility() {
+      // Modo OR: si el destino tiene al menos 1 categoría activa → mostrar
+      markers.forEach(({marker, categories}) => {
+        const visible = [...categories].some(c => activeCats.has(c));
+        if (visible) { marker.addTo(map); } else { marker.remove(); }
+      });
+    }
+
+    // Eventos de checkboxes
+    document.querySelectorAll('.filter-control input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', e => {
         const cat = e.target.dataset.cat;
-        groups[cat].forEach(marker => {
-          if (e.target.checked) marker.addTo(map);
-          else map.removeLayer(marker);
-        });
+        if (e.target.checked) activeCats.add(cat);
+        else activeCats.delete(cat);
+        if (activeCats.size === 0) {
+          // Si no hay ninguna seleccionada, mostramos todo por usabilidad
+          Object.keys(CATEGORY_LABELS).forEach(k => activeCats.add(k));
+          document.querySelectorAll('.filter-control input[type="checkbox"]').forEach(x => x.checked = true);
+        }
+        updateVisibility();
       });
     });
+
+    // Botones "Todas" / "Ninguna"
+    document.getElementById('btnAll').addEventListener('click', () => {
+      activeCats.clear();
+      Object.keys(CATEGORY_LABELS).forEach(k => activeCats.add(k));
+      document.querySelectorAll('.filter-control input[type="checkbox"]').forEach(x => x.checked = true);
+      updateVisibility();
+    });
+    document.getElementById('btnNone').addEventListener('click', () => {
+      activeCats.clear();
+      document.querySelectorAll('.filter-control input[type="checkbox"]').forEach(x => x.checked = false);
+      // Por decisión de UX, al dejar "ninguna" los ocultamos todos:
+      updateVisibility();
+    });
+
+    // Primera actualización (por si a futuro cambiamos el estado inicial)
+    updateVisibility();
   </script>
 </body>
 </html>
-
