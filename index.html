@@ -6,8 +6,7 @@
       <meta content="width=device-width, initial-scale=1" name="viewport"/>
       <meta content="" name="description"/>
       <!-- Site Title -->
-      <title>EL AGRESTE - TURISMO PATAGONICO</title>
-      <!-- TRADUCIR -->
+      <title>EL AGRESTE - TURISMO PATAGONICO | PATAGONIAN TOURISM</title>
       <!-- Place favicon.ico in the root directory -->
       <link href="assets/img/favicon.png" rel="shortcut icon" type="image/x-icon"/>
       <!-- CSS here -->
@@ -41,22 +40,30 @@
                      <div class="top-bar-social">
                         <ul class="top-social-list">
                            <li>
-                              <a href="#"><i class="fab fa-facebook-f"></i></a>
+                              <a href="https://www.facebook.com/agrestepatagonia"><i class="fab fa-facebook-f"></i></a>
                            </li>
                            <li>
-                              <a href="#"><i class="fab fa-instagram"></i></a>
+                              <a href="https://www.instagram.com/agrestepatagonia/"><i class="fab fa-instagram"></i></a>
                            </li>
                            <li>
-                              <a href="#"><i class="fab fa-tiktok"></i></a>
+                              <a href="https://www.tiktok.com/@elagreste.turismo"><i class="fab fa-tiktok"></i></a>
                            </li>
                         </ul>
                      </div>
                      <ul class="top-left-list">
                         <li class="country-list">
-                           <select class="ddl-select" id="list-2" name="list">
-                              <option value="english">English</option>
-                              <option value="español">Español</option>
-                           </select>
+                           <div id="tope" class="dropdown language-selector bs-lang">
+                              <span style="color: white;">Idioma | Language</span>
+                            <button class="btn btn-outline-secondary dropdown-toggle language-toggle"
+                                    type="button" aria-haspopup="true" aria-expanded="false"
+                                    aria-label="Change language">
+                              <img class="flag" alt="" width="20">
+                            
+                            </button>
+
+                            <ul class="dropdown-menu language-menu" role="menu" aria-label="Language menu"></ul>
+                          </div>
+
                         </li>
                      </ul>
                   </div>
@@ -85,62 +92,109 @@
                      <div class="header-menu-wrap">
                         <div class="mobile-menu-items">
                           <ul>
-                            <li class="menu-item">
-                              <a href="">Inicio</a>
-                            </li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            
-                            <li class="menu-item-has-children">
-                              <a href="https://agrestepatagonia.com/locations/">Destinos</a>
-                              <ul>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/sarmiento">SARMIENTO</a>
-                                </li>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/esquel">ESQUEL</a>
-                                </li>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/rio-pico">RIO PICO</a>
-                                </li>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/comodoro">COMODORO</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                  <a href="">INTERNACIONAL</a>
-                                  <ul>
-                                    <li><a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/">Chile</a></li>
-                                    <li><a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/">Costa Rica</a></li>
-                                  </ul>
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="menu-item-has-children">
-                              <a href="https://agrestepatagonia.com/locations/">Actividades</a>
-                              <ul>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/tag/aventura-adventure/">AVENTURA</a>
-                                </li>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/tag/ecoturismo-ecoturism/">ECOTURISMO</a>
-                                </li>
-                                <li class="menu-item">
-                                 <a href="https://agrestepatagonia.com/locations/tag/fotografia-photography/">FOTOGRAFIA</a>
-                               </li>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/tag/pesca-fishing/">PESCA</a>
-                                </li>
-                                <li class="menu-item">
-                                  <a href="https://agrestepatagonia.com/locations/tag/senderismo-hiking/">SENDERISMO</a>
-                                </li>
-                              </ul>
-                            </li>
-                            
-                            <li class="menu-item">
-                              <a href="https://agrestepatagonia.com/locations/galeria-de-fotos-photo-gallery/">Galería</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="https://agrestepatagonia.com/contacto-contact.html">Contacto</a></li>
-                          </ul>                          
+                              <li class="menu-item">
+                                <a href=""
+                                  data-i18n-es="Inicio"
+                                  data-i18n-en="Home">Inicio</a>
+                              </li>
+
+                              <li>
+                                <a href="nosotros.html"
+                                  data-i18n-es="Nosotros"
+                                  data-i18n-en="Our Venture">Nosotros</a>
+                              </li>
+
+                              <li class="menu-item-has-children">
+                                <a href="https://agrestepatagonia.com/locations/"
+                                  data-i18n-es="Destinos"
+                                  data-i18n-en="Locations">Destinos</a>
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/sarmiento"
+                                      data-i18n-es="SARMIENTO"
+                                      data-i18n-en="SARMIENTO">SARMIENTO</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/esquel"
+                                      data-i18n-es="ESQUEL"
+                                      data-i18n-en="ESQUEL">ESQUEL</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/rio-pico"
+                                      data-i18n-es="RÍO PICO"
+                                      data-i18n-en="RIO PICO">RIO PICO</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/comodoro"
+                                      data-i18n-es="COMODORO"
+                                      data-i18n-en="COMODORO">COMODORO</a>
+                                  </li>
+                                  <li class="menu-item-has-children">
+                                    <a href=""
+                                      data-i18n-es="INTERNACIONAL"
+                                      data-i18n-en="INTERNATIONAL">INTERNACIONAL</a>
+                                    <ul>
+                                      <li>
+                                        <a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/"
+                                          data-i18n-es="Chile"
+                                          data-i18n-en="Chile">Chile</a>
+                                      </li>
+                                      <li>
+                                        <a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/"
+                                          data-i18n-es="Costa Rica"
+                                          data-i18n-en="Costa Rica">Costa Rica</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+
+                              <li class="menu-item-has-children">
+                                <a href="https://agrestepatagonia.com/locations/"
+                                  data-i18n-es="Actividades"
+                                  data-i18n-en="Activities">Actividades</a>
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/aventura-adventure/"
+                                      data-i18n-es="AVENTURA"
+                                      data-i18n-en="ADVENTURE">AVENTURA</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/ecoturismo-ecoturism/"
+                                      data-i18n-es="ECOTURISMO"
+                                      data-i18n-en="ECOTOURISM">ECOTURISMO</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/fotografia-photography/"
+                                      data-i18n-es="FOTOGRAFÍA"
+                                      data-i18n-en="PHOTOGRAPHY">FOTOGRAFÍA</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/pesca-fishing/"
+                                      data-i18n-es="PESCA"
+                                      data-i18n-en="FISHING">PESCA</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/senderismo-hiking/"
+                                      data-i18n-es="SENDERISMO"
+                                      data-i18n-en="HIKING">SENDERISMO</a>
+                                  </li>
+                                </ul>
+                              </li>
+
+                              <li class="menu-item">
+                                <a href="https://agrestepatagonia.com/locations/galeria-de-fotos-photo-gallery/"
+                                  data-i18n-es="Galería"
+                                  data-i18n-en="Photo Gallery">Galería</a>
+                              </li>
+
+                              <li class="menu-item">
+                                <a href="https://agrestepatagonia.com/contacto-contact.html"
+                                  data-i18n-es="Contacto"
+                                  data-i18n-en="Contact Us">Contacto</a>
+                              </li>
+                            </ul>
+                         
                         </div>
                      </div>
                      <!-- /.header-menu-wrap -->
@@ -165,8 +219,21 @@
             <div class="side-menu-head">
                <a href="index.html"><img alt="logo" src="assets/img/logo/logo_agreste.png"/></a>
                <button class="mobile-side-menu-close"><i class="fa-regular fa-xmark"></i></button>
-            </div>
-            <div class="side-menu-wrap"></div>
+               
+              </div>
+              <div class="side-menu-wrap"></div>
+              <!-- Contenedor dropup -->
+                <div class="dropdown dropup language-selector bs-lang">
+                  <span>Idioma | Language</span>
+                  <button class="btn btn-outline-secondary dropdown-toggle language-toggle"
+                          type="button" aria-haspopup="true" aria-expanded="false"
+                          aria-label="Change language">
+                    <img class="flag" alt="" width="20">
+                  
+                  </button>
+
+                  <ul class="dropdown-menu language-menu" role="menu" aria-label="Language menu"></ul>
+                </div>
          </div>
       </div>
       <!-- /.mobile-side-menu -->
@@ -177,24 +244,50 @@
                <div class="col-lg-6">
                   <div class="hero-content">
                     <div class="hero-text text-center py-5">
-                      <h4 class="sub-title">Viví experiencias únicas con <br class="break"> <strong style="font-size: 1.8rem; font-family: &quot;Abril Fatface&quot;, serif;"> EL AGRESTE</strong></span></h4>
-                      <h1 class="title text-shadow-pop-bottom">TURISMO PATAGÓNICO</h1>
-                      <p>Conecta con la naturaleza, descubrí paisajes únicos y sentí la libertad de lo auténtico.<br><strong>EL AGRESTE</strong> te lleva al corazón de la Patagonia.</p>
+                      <h4 class="sub-title lang es">Viví experiencias únicas con <br class="break"> <strong style="font-size: 1.8rem; font-family: &quot;Abril Fatface&quot;, serif;"> EL AGRESTE</strong></span></h4>
+                      <h4 class="sub-title lang en">Live unique experiences with <br class="break"> <strong style="font-size: 1.8rem; font-family: &quot;Abril Fatface&quot;, serif;"> EL AGRESTE</strong></h4>
+                      <h1 class="title text-shadow-pop-bottom lang es">TURISMO PATAGÓNICO</h1>
+                      <h1 class="title text-shadow-pop-bottom lang en">PATAGONIAN TOURISM</h1>
+                      <p class="lang es">Conecta con la naturaleza, descubrí paisajes únicos y sentí la libertad de lo auténtico.<br><strong>EL AGRESTE</strong> te lleva al corazón de la Patagonia.</p>
+                      <p class="lang en">Connect with nature, discover unique landscapes, and feel the freedom of authenticity.<br><strong>EL AGRESTE</strong> takes you to the heart of Patagonia.</p>
                       <div class="d-flex flex-row justify-content-center flex-wrap hero-actividad">
-                        <span class="category-home mt-3 mx-2">EcoTurismo</span>
-                        <span class="category-home mt-3 mx-2">Logística</span>
-                        <span class="category-home mt-3 mx-2">Traslados</span>
-                        <span class="category-home mt-3 mx-2">Aventura</span>
-                        <span class="category-home mt-3 mx-2">Pesca</span>
-                        <span class="category-home mt-3 mx-2">Senderismo</span>
-                        <span class="category-home mt-3 mx-2">Gastronomia Local</span>
-                        <span class="category-home mt-3 mx-2">Rafting</span>
-                        <span class="category-home mt-3 mx-2">Cabalgatas</span>
-                        <span class="category-home mt-3 mx-2">Guias Expertos</span>
-                        <span class="category-home mt-3 mx-2">Experiencias Seleccionadas</span>
+                          <span class="category-home mt-3 mx-2 lang es">EcoTurismo</span>
+                          <span class="category-home mt-3 mx-2 lang en">EcoTourism</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Logística</span>
+                          <span class="category-home mt-3 mx-2 lang en">Logistics</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Traslados</span>
+                          <span class="category-home mt-3 mx-2 lang en">Transportation</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Aventura</span>
+                          <span class="category-home mt-3 mx-2 lang en">Adventure</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Pesca</span>
+                          <span class="category-home mt-3 mx-2 lang en">Fishing</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Senderismo</span>
+                          <span class="category-home mt-3 mx-2 lang en">Hiking</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Gastronomia Local</span>
+                          <span class="category-home mt-3 mx-2 lang en">Local Gastronomy</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Rafting</span>
+                          <span class="category-home mt-3 mx-2 lang en">Rafting</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Cabalgatas</span>
+                          <span class="category-home mt-3 mx-2 lang en">Horseback Riding</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Guias Expertos</span>
+                          <span class="category-home mt-3 mx-2 lang en">Expert Guides</span>
+
+                          <span class="category-home mt-3 mx-2 lang es">Experiencias Seleccionadas</span>
+                          <span class="category-home mt-3 mx-2 lang en">Selected Experiences</span>
+
                       </div>
                       <div class="hero-btn-wrap justify-content-center mt-3">
-                         <div class="hero-btn  heartbeat"><a class="ts-primary-btn" href="#discover">Descubrí más<i class="fa-regular fa-chevron-down"></i></a></div>
+                        <div class="hero-btn heartbeat"><a class="ts-primary-btn lang es" href="#discover">Descubrí más<i class="fa-regular fa-chevron-down"></i></a></div>
+                        <div class="hero-btn heartbeat"><a class="ts-primary-btn lang en" href="#discover">Discover more<i class="fa-regular fa-chevron-down"></i></a></div>
                       </div>
                     </div>
                   </div>
@@ -218,12 +311,13 @@
              <div class="col-lg-6">
                <div class="about-content about-content-2 fade-wrapper">
                  <div class="section-heading mb-40">
-                   <h2 class="section-title">Vivencias mágicas con gente increíble</h2>
+                   <h2 class="section-title lang es">Vivencias mágicas con gente increíble</h2>
+                   <h2 class="section-title lang en">Magical experiences with amazing people</h2>
+
                  </div>
                  <div class="about-items">
-                   <p >
-                     En <strong>El Agreste</strong>  conectamos a viajeros con la autenticidad de la <strong>Patagonia</strong> a través de experiencias cuidadosamente curadas. Desde travesías en cerros y paseos por la costa hasta asados criollos y estancias rurales, cada propuesta es una invitación a conocer la naturaleza, la cultura y la calidez humana que definen esta región. Trabajamos con guías locales, emprendimientos familiares y proyectos comprometidos con el territorio. Nuestra misión es que cada visitante viva la <strong>Patagonia</strong> no como un turista, sino como un invitado especial. Con seguridad, cercanía y mucho corazón, creamos un turismo consciente y profundo que deja huella en el alma.
-                   </p>
+                   <p class="lang es">En <strong>El Agreste</strong> conectamos a viajeros con la autenticidad de la <strong>Patagonia</strong> a través de experiencias cuidadosamente curadas. Desde travesías en cerros y paseos por la costa hasta asados criollos y estancias rurales, cada propuesta es una invitación a conocer la naturaleza, la cultura y la calidez humana que definen esta región. Trabajamos con guías locales, emprendimientos familiares y proyectos comprometidos con el territorio. Nuestra misión es que cada visitante viva la <strong>Patagonia</strong> no como un turista, sino como un invitado especial. Con seguridad, cercanía y mucho corazón, creamos un turismo consciente y profundo que deja huella en el alma.</p>
+                   <p class="lang en">At <strong>El Agreste</strong> we connect travelers with the authenticity of <strong>Patagonia</strong> through carefully curated experiences. From mountain treks and coastal walks to traditional barbecues and rural estancias, each proposal is an invitation to discover the nature, culture, and human warmth that define this region. We work with local guides, family enterprises, and projects committed to the land. Our mission is for every visitor to experience <strong>Patagonia</strong> not as a tourist, but as a special guest. With safety, closeness, and a big heart, we create conscious and profound tourism that leaves a mark on the soul.</p>
                  </div>
                </div>
              </div>
@@ -237,12 +331,18 @@
       <section id="discover" class="tour-section pt-120 pb-120">
         <div class="container">
           <div class="section-heading text-center">
-            <h4 class="sub-heading">El Agreste te lleva:</h4>
-            <h2 class="section-title">Experiencias Patagónicas</h2>
+            <h4 class="sub-heading lang es">El Agreste te lleva:</h4>
+            <h4 class="sub-heading lang en">El Agreste will take you there:</h4>
+            <h2 class="section-title lang es">Experiencias Patagónicas</h2>
+            <h2 class="section-title lang en">Patagonian Experiences</h2>
+            <p class="lang es mt-3">Conocemos bien nuestra región por lo que hemos curado las mejores experiencias para que vivas la Patagonia a tu ritmo y gusto.</p>
+            <p class="lang en mt-3">We know our region well, which is why we have curated the best experiences for you to enjoy the Patagonia at your own pace and style.</p>
           </div>
       
           <!-- Botones de filtro -->
-          <div><p class="text-center">Filtre por destino y/o actividad:</p></div>
+          <div><p class="text-center lang es"> <i> Filtre por destino y/o actividad:</i></p></div>
+          <div><p class="text-center lang en"> <i> Filter by destination and/or activity:</i></p></div>
+
               <div class="d-flex justify-content-center mb-5 gap-3 flex-wrap">
               <!-- Dropdown: filtro por destino -->
               <div class="dropdown">
@@ -296,12 +396,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-1.webp" alt="Escalado en Piedra Parada">
-                  <span class="category">Aventura</span>
-                </div>
+                  <span class="category lang es">Aventura</span>
+                  <span class="category lang en">Adventure</span>
+            </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Esquel</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/escalada-en-piedra-parada-esquel/">Escalado en Piedra Parada</a></h3>
-                  <p>Una experiencia de aventura entre gigantes rocosos en un paisaje de otro planeta.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/escalada-en-piedra-parada-esquel/">Escalada en Piedra Parada</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/escalada-en-piedra-parada-esquel/">Climbing at Piedra Parada</a></h3>
+                  <p class="lang es">Una experiencia de aventura entre gigantes rocosos en un paisaje de otro planeta.</p>
+                  <p class="lang en">An adventure experience among giant rock formations in an otherworldly landscape.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/escalada-en-piedra-parada-esquel/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -313,12 +416,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-2.webp" alt="Rafting Corcovado">
-                  <span class="category">Aventura</span>
+                  <span class="category lang es">Aventura</span>
+                  <span class="category lang en">Adventure</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Rio Pico</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/rio-corcovado-rio-pico/">Rafting en Río Corcovado</a></h3>
-                  <p>Aventura en aguas rápidas rodeado de bosques y cordillera: adrenalina garantizada.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/rio-corcovado-rio-pico/">Rafting en Río Corcovado</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/rio-corcovado-rio-pico/">Rafting on the Corcovado River</a></h3>
+                  <p class="lang es">Aventura en aguas rápidas rodeado de bosques y cordillera: adrenalina garantizada.</p>
+                  <p class="lang en">Adventure in whitewater surrounded by forests and mountains: adrenaline boost guaranteed.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/rio-corcovado-rio-pico/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -329,12 +435,17 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-66.webp" alt="Recorrido por la Ruta Azul">
-                  <span class="category">EcoTurismo</span>
+                  <span class="category lang es">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
+
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Comodoro Rivadavia - Trelew</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/recorrido-patagonia-azul-chubut/">Recorrido por la  Patagonia Azul</a></h3>
-                  <p>Más de 450 km de ruta entre paisajes costeros y áreas ecoprotegidas.</p>
+                 <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/recorrido-patagonia-azul-chubut/">Recorrido por la Patagonia Azul</a></h3>
+                 <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/recorrido-patagonia-azul-chubut/">Explore Patagonia Blue Coast</a></h3>
+                                  <p class="lang es">Más de 450 km de ruta entre paisajes costeros y áreas ecoprotegidas.</p>
+                 <p class="lang en">Over 450 km of road through coastal landscapes and eco-protected areas.</p>
+
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/recorrido-patagonia-azul-chubut/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -345,12 +456,16 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-33.webp" alt="Bosque Jaramillo">
-                  <span class="category">EcoTurismo</span>
+                  <span class="category lang es">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Santa Cruz</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/bosque-jaramillo-santa-cruz/">Visita Bosque Petrificado</a></h3>
-                  <p>Recorre esta maravilla geológica en la estepa patagónica llena de fósiles vegetales.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/bosque-jaramillo-santa-cruz/">Bosque Petrificado Jaramillo</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/bosque-jaramillo-santa-cruz/">Visit Jaramillo Petrified Forest</a></h3>
+                  <p class="lang es">Recorre esta maravilla geológica en la estepa patagónica llena de fósiles vegetales.</p>
+                  <p class="lang en">Explore this geological wonder in the Patagonian steppe, full of plant fossils.</p>
+
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/bosque-jaramillo-santa-cruz/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -362,12 +477,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-44.webp" alt="Visita Zona EcoProtegida">
-                  <span class="category">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span><span class="category lang es">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Esquel</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/reserva-natural-esquel/">Visita Zona EcoProtegida</a></h3>
-                  <p>Descubrí ecosistemas patagónicos únicos, cuidados por la comunidad local.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/reserva-natural-esquel/">Reserva Laguna La Zeta</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/reserva-natural-esquel/">La Zeta Lagoon Reserve</a></h3>
+                  <p class="lang es">Descubrí ecosistemas patagónicos únicos, cuidados por la comunidad local.</p>
+                  <p class="lang en">Discover a unique Patagonian ecosystem cared for by the local community.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/reserva-natural-esquel/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -379,12 +497,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-55.webp" alt="Fullday Pesca, Río Pico.">
-                  <span class="category">Pesca</span>
+                  <span class="category lang es">Pesca</span>
+                  <span class="category lang en">Fishing</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Rio Pico</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/lago-vintter-rio-pico/">Fullday Pesca, Lago Vintter.</a></h3>
-                  <p>Viví la pesca con guía local, desayuno y hospedaje incluido frente al río.</p>
+                 <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/lago-vintter-rio-pico/">Fullday Pesca en el Lago Vintter.</a></h3>
+                 <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/lago-vintter-rio-pico/">Full-day Fishing at Lake Vintter</a></h3>
+                 <p class="lang es">Viví la pesca con guía local, desayuno y hospedaje incluido frente al río.</p>
+                 <p class="lang en">Experience fishing with a local guide, breakfast, and lodging included by the river.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/lago-vintter-rio-pico/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -396,12 +517,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-555.webp" alt="Experienca Campamento Darwin.">
-                  <span class="category">EcoTurismo</span>
+                  <span class="category lang es">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Santa Cruz</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/campamento-darwin-santa-cruz/">Experiencia Campamento Darwin.</a></h3>
-                  <p>Seguí los pasos de Charles Darwin en uno de los rincones más remotos y primitivos de Patagonia.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/campamento-darwin-santa-cruz/">Experiencia Campamento Darwin.</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/campamento-darwin-santa-cruz/">Darwin Camp Experience</a></h3>
+                  <p class="lang es">Seguí los pasos de Charles Darwin en uno de los rincones más remotos y primitivos de Patagonia.</p>
+                  <p class="lang en">Follow in the footsteps of Charles Darwin in one of Patagonia’s most remote and untamed corners.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/campamento-darwin-santa-cruz/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -413,12 +537,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-6.webp" alt="Avistamiento de Puma en Torres del Paine" data-id="ecoturismo">
-                  <span class="category">EcoTurismo</span>
+                  <span class="category lang es">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Torres del Paine - CHILE</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/">Avistamiento de Puma</a></h3>
-                  <p>Sumergite en la majestuosidad del Parque Torres del Paine en busca del puma patagónico.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/">Avistamiento de Puma</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/">Puma Watching</a></h3>
+                  <p class="lang es">Sumergite en la majestuosidad del Parque Torres del Paine en busca del puma patagónico.</p>
+                  <p class="lang en">Immerse yourself in the Torres del Paine National Park in search of the Patagonian puma.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -430,12 +557,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-11.webp" alt="Cerro San Bernardo - Sarmiento - Chubut">
-                  <span class="category">Senderismo</span>
+                  <span class="category lang es">Senderismo</span>
+                  <span class="category lang en">Hiking</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Sarmiento</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/cerro-san-bernardo-sarmiento/">Ascenso Cerro San Bernardo.</a></h3>
-                  <p>Explorá senderos en una experiencia inmersiva, ideal para amantes del trekking.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/cerro-san-bernardo-sarmiento/">Ascenso Cerro San Bernardo.</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/cerro-san-bernardo-sarmiento/">Ascent the San Bernardo Peak</a></h3>
+                  <p class="lang es">Explorá senderos en una experiencia inmersiva, ideal para amantes del trekking.</p>
+                  <p class="lang en">Explore trails in an immersive experience, ideal for trekking enthusiasts.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/cerro-san-bernardo-sarmiento/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -448,11 +578,14 @@
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-111.webp" alt="Rocas Coloradas – Comodoro">
                   <span class="category">Ecoturismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
-                  <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Comodoro Rivadavia</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/rocas-coloradas-comodoro/">Área Protegida Rocas Coloradas</a></h3>
-                  <p>Aquí la estepa se enfrenta al mar y la historia se lee en la roca misma.</p>
+                  <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Comodoro</span>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/rocas-coloradas-comodoro/">Área Protegida Rocas Coloradas</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/rocas-coloradas-comodoro/">"Red Rocks" Protected Area</a></h3>
+                  <p class="lang es">Aquí la estepa se enfrenta al mar y la historia se lee en la roca misma.</p>
+                  <p class="lang en">Here the steppe meets the sea and history is written in the rock itself.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/rocas-coloradas-comodoro/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -464,12 +597,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-3.webp" alt="Ruta Fotográfica Trevelin">
-                  <span class="category">Fotografía</span>
+                  <span class="category lang es">Fotografía</span>
+                  <span class="category lang en">Photography</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Esquel</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/trevelin-esquel/">Ruta Fotográfica Trevelin</a></h3>
-                  <p>Capturá la belleza de los campos florales, arquitectura galesa y naturaleza vibrante.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/trevelin-esquel/">Ruta Fotográfica Trevelin</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/trevelin-esquel/">Trevelin Photo Route</a></h3>
+                  <p class="lang es">Capturá la belleza de los campos florales, arquitectura galesa y naturaleza vibrante.</p>
+                  <p class="lang en">Capture the beauty of flower fields, Welsh architecture, and vibrant nature.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/trevelin-esquel/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -482,11 +618,14 @@
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-9.webp" alt="Visita Bosque Petrificado">
                   <span class="category">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Sarmiento</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/bosque-petrificado-sarmiento/">Visita Bosque Petrificado</a></h3>
-                  <p>Explorá troncos milenarios fosilizados en un entorno patagónico único.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/bosque-petrificado-sarmiento/">Bosque Petrificado Sarmiento</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/bosque-petrificado-sarmiento/">Visit Sarmiento Petrified Forest</a></h3>
+                  <p class="lang es">Explorá troncos milenarios fosilizados en un entorno patagónico único.</p>
+                  <p class="lang en">Explore millenary fossilized trunks in a unique Patagonian setting.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/bosque-petrificado-sarmiento/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -498,12 +637,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-8.webp" alt="Fullday Pesca, Lago Muster">
-                  <span class="category">Pesca</span>
+                  <span class="category lang es">Pesca</span>
+                  <span class="category lang en">Fishing</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Sarmiento</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/pesca-lago-musters-sarmiento/">Fullday Pesca, Lago Muster</a></h3>
-                  <p>Disfrutá una jornada completa de pesca deportiva rodeado de naturaleza virgen.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/pesca-lago-musters-sarmiento/">Fullday Pesca en Lago Muster</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/pesca-lago-musters-sarmiento/">Full-day Fishing at Lake Musters</a></h3>
+                  <p class="lang es">Disfrutá una jornada completa de pesca deportiva rodeado de naturaleza virgen.</p>
+                  <p class="lang en">Enjoy a full day of sport fishing surrounded by pristine nature.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/pesca-lago-musters-sarmiento/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -515,12 +657,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-77.webp" alt="Senderismo y Trekking Cerro Riñón">
-                  <span class="category">Senderismo</span>
+                  <span class="category lang es">Senderismo</span>
+                  <span class="category lang en">Hiking</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Rio Pico</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/cerro-rinon-rio-pico/">Ascenso al Cerro Riñón</a></h3>
-                  <p>Desafiá tus sentidos ascendiendo entre lagos, bosques y vistas panorámicas.</p>
+                 <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/cerro-rinon-rio-pico/">Ascenso al Cerro Riñón</a></h3>
+                 <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/cerro-rinon-rio-pico/">Ascent the "Kidney Peak"</a></h3>
+                 <p class="lang es">Desafiá tus sentidos ascendiendo entre lagos, bosques y vistas panorámicas.</p>
+                 <p class="lang en">Challenge your senses by ascending among lakes, forests, and panoramic views.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/cerro-rinon-rio-pico/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -534,11 +679,14 @@
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-777.webp" alt="Puerto Deseado – Santa Cruz">
                   <span class="category">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Santa Cruz</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/puerto-deseado-santa-cruz/"> Recorrido Puerto Deseado</a></h3>
-                  <p>Paseos a una Patagonia intacta, combinando fauna, historia y paisajes que no se olvidan.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/puerto-deseado-santa-cruz/">Recorrido Puerto Deseado</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/puerto-deseado-santa-cruz/">"Port Deseado" Tour</a></h3>
+                  <p class="lang es">Paseos a una Patagonia intacta, combinando fauna, historia y paisajes inolvidables.</p>
+                  <p class="lang en">Discover untouched Patagonia through wildlife, history, and epic landscapes.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/puerto-deseado-santa-cruz/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -552,11 +700,14 @@
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-88.webp" alt="Día de Campo, Chacra &quot;Los Cypreses&quot;">
                   <span class="category">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i> Sarmiento</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/chacra-los-cypreses-sarmiento/">Fullday Chacra "Los Cypreses"</a></h3>
-                  <p>Conectate con la vida de campo: animales, comida casera y tradición.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/chacra-los-cypreses-sarmiento/">Fullday Chacra "Los Cypreses"</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/chacra-los-cypreses-sarmiento/">Full-day at "Los Cypreses" Farm</a></h3>
+                  <p class="lang es">Conectate con la vida de campo: animales, comida casera y tradición.</p>
+                  <p class="lang en">Connect with rural life: animals, homemade food, and tradition.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/chacra-los-cypreses-sarmiento/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -568,11 +719,14 @@
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-99.webp" alt="Día de Campo, Rancho Patagonico">
                   <span class="category">EcoTurismo</span>
+                  <span class="category lang en">EcoTourism</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>Santa Cruz</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/rancho-patagonico-santa-cruz/">Fullday Rancho Patagónico</a></h3>
-                  <p>Punto de partida del circuito turístico que conecta la "Patagonia Sur" de oeste a este.</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/rancho-patagonico-santa-cruz/">Fullday Rancho Patagónico</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/rancho-patagonico-santa-cruz/">Full-day Patagonian Ranch</a></h3>
+                  <p class="lang es">Punto de partida del circuito turístico que conecta la "Patagonia Sur" de oeste a este.</p>
+                  <p class="lang en">Starting point of the tourist circuit that connects "Southern Patagonia" from west to east.</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/rancho-patagonico-santa-cruz/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -583,12 +737,15 @@
               <div class="tour-item tour-item-2">
                 <div class="tour-thumb">
                   <img src="assets/img/destination/card-22.webp" alt="Costa Rica">
-                  <span class="category">Internacional</span>
+                  <span class="category lang es">Internacional</span>
+                  <span class="category lang en">International</span>
                 </div>
                 <div class="tour-content">
                   <span class="location"><i class="fa-sharp fa-solid fa-location-dot"></i>COSTA RICA</span>
-                  <h3 class="title"><a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/">Viaje a Costa Rica</a></h3>
-                  <p>Te llevamos a la joya de Centroamérica. Playa, montaña, selva y aventura ¡pura vida!</p>
+                  <h3 class="title lang es"><a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/">Viaje a Costa Rica</a></h3>
+                  <h3 class="title lang en"><a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/">Trip to Costa Rica</a></h3>
+                  <p class="lang es">Te llevamos a la joya de Centroamérica. Playa, montaña, selva y aventura ¡pura vida!</p>
+                  <p class="lang en">We take you to the jewel of Central America: beach, mountains, jungle, and adventure!</p>
                   <div class="tour-bottom">
                     <a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/" class="ts-primary-btn" style="font-size: 1rem;">+ INFO</a>
                   </div>
@@ -600,19 +757,29 @@
       </section>
       
        
-      <!-- ./ tour-section -->
+      <!-- ./ map-section -->
       <section class="service-section-2 pt-120 pb-120">
          <div class="bg-shape" data-background="assets/img/bg-img/bg_1.webp"></div>
          <div class="container">
-           <div class="row gy-lg-0 gy-4">
+          <div class="row gy-lg-0 gy-4">
+            <div class="col-md-6">
+              <h2>Tu brújula digital en la Patagonia</h2>
+              <p></p>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            
+          </div>
+           <div class="row gy-lg-0 gy-4 mt-3">
        
              <div class="col-lg-4 col-md-6">
                <div class="service-item-2">
                  <div class="border-line"></div>
-                 <h3 class="title"><a href="nosotros.html">Guías expertos.</a></h3>
+                 <h3 class="title"><a href="contacto-contact.html">Guías expertos.</a></h3>
                  <p>Conocen cada rincón de la Patagonia. Te guiarán con seguridad, calidez y saber local.</p>
                  <div class="service-btn">
-                   <a class="read-more" href="nosotros.html">+Detalles<i class="fa-regular fa-arrow-right"></i></a>
+                   <a class="read-more" href="contacto-contact.html">+Detalles<i class="fa-regular fa-arrow-right"></i></a>
                  </div>
                </div>
              </div>
@@ -620,10 +787,10 @@
              <div class="col-lg-4 col-md-6">
                <div class="service-item-2">
                  <div class="border-line"></div>
-                 <h3 class="title"><a href="nosotros.html">Alojamiento.</a></h3>
+                 <h3 class="title"><a href="contacto-contact.html">Alojamiento.</a></h3>
                  <p>Estancias rurales, cabañas y hospedajes únicos que te conectan con la vida patagónica.</p>
                  <div class="service-btn">
-                   <a class="read-more" href="nosotros.html">+Detalles<i class="fa-regular fa-arrow-right"></i></a>
+                   <a class="read-more" href="contacto-contact.html">+Detalles<i class="fa-regular fa-arrow-right"></i></a>
                  </div>
                </div>
              </div>
@@ -631,10 +798,10 @@
              <div class="col-lg-4 col-md-6">
                <div class="service-item-2">
                  <div class="border-line"></div>
-                 <h3 class="title"><a href="nosotros.html">Paquetes.</a></h3>
+                 <h3 class="title"><a href="contacto-contact.html">Paquetes.</a></h3>
                  <p>Sea que viajas solo, con amigos, en pareja o familia, armamos experiencias a tu medida.</p>
                  <div class="service-btn">
-                   <a class="read-more" href="nosotros.html">+Detalles<i class="fa-regular fa-arrow-right"></i></a>
+                   <a class="read-more" href="contacto-contact.html">+Detalles<i class="fa-regular fa-arrow-right"></i></a>
                  </div>
                </div>
              </div>
@@ -643,7 +810,7 @@
          </div>
       </section>
        
-      <!-- ./ service-section -->
+      <!-- ./ service-section 
       <section class="destination-section pt-120 pb-120 fade-wrapper">
          <div class="container">
            <div class="section-heading text-center mb-40">
@@ -719,87 +886,106 @@
          </div>
        
         
-       </section>
+       </section>-->
       <!-- ./ destination-section -->
       <section class="faq-section pt-120 pb-120 overflow-hidden">
          <div class="bg-shape" data-background="assets/img/bg-img/bg_1.webp" style="background-image: url('assets/img/bg-img/bg_1.webp');"></div>
          <div class="container">
            <div class="section-heading text-center mb-40">
-             <h4 class="sub-heading" data-duration="1.5" data-text-animation="fade-in">Preguntas Frecuentes</h4>
-             <h2 class="section-title" data-duration="0.6" data-split="char" data-stagger="0.03" data-text-animation="fade-in-right">
-               Antes del viaje de tu vida tenes que saber:
-             </h2>
-           </div>
+            <h4 class="sub-heading lang es" data-duration="1.5" data-text-animation="fade-in">Preguntas Frecuentes</h4>
+            <h4 class="sub-heading lang en" data-duration="1.5" data-text-animation="fade-in">Frequently Asked Questions</h4>
+            <h2 class="section-title lang es" data-duration="0.6" data-split="char" data-stagger="0.03" data-text-animation="fade-in-right">Antes del viaje de tu vida tenes que saber:</h2>
+            <h2 class="section-title lang en" data-duration="0.6" data-split="char" data-stagger="0.03" data-text-animation="fade-in-right">Before the trip of your life, you need to know:</h2>
+          </div>
            <div class="row align-items-center">
              <div class="col-lg-6">
                <div class="faq-content">
                  <div class="accordion" id="accordionExample">
-       
-                   <div class="accordion-item">
-                     <h2 class="accordion-header" id="headingOne">
-                       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                         ¿Qué tipo de ropa debo llevar para la Patagonia?
-                       </button>
-                     </h2>
-                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                       <div class="accordion-body">
-                         <p>Recomendamos vestirte en capas: remeras térmicas, abrigo impermeable, calzado cómodo y protección solar. El clima cambia rápidamente.</p>
-                       </div>
-                     </div>
-                   </div>
-       
+                   
                    <div class="accordion-item">
                      <h2 class="accordion-header" id="headingTwo">
-                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                         ¿Hay opciones de pago flexibles?
-                       </button>
-                     </h2>
+                       <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          ¿Hay opciones de pago flexibles?
+                        </button>
+                        <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Are there flexible payment options?
+                        </button>
+                      </h2>
                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                        <div class="accordion-body">
-                         <p>¡Sí! Podés reservar con seña y abonar el resto en cuotas. Aceptamos transferencias, tarjetas y efectivo.</p>
+                         <p class="lang es">¡Sí! Podés reservar con seña. Aceptamos transferencias, tarjetas y efectivo en moneda argentina o extranjera.</p>
+                         <p class="lang en">Yes! You can book with a deposit. We accept bank transfers, cards, and cash in Argentine or foreign currency.</p>
                        </div>
                      </div>
                    </div>
-       
-                   <div class="accordion-item">
-                     <h2 class="accordion-header" id="headingThree">
-                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                         ¿Las excursiones son aptas para todas las edades?
-                       </button>
-                     </h2>
-                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                       <div class="accordion-body">
-                         <p>Ofrecemos experiencias para todo público: desde caminatas suaves hasta travesías más exigentes. ¡Consultanos según tu nivel!</p>
-                       </div>
-                     </div>
-                   </div>
-       
                    <div class="accordion-item">
                      <h2 class="accordion-header" id="headingFour">
-                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                         ¿Cómo son los alojamientos en El Agreste?
-                       </button>
+                      <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        ¿Cómo son los alojamientos en El Agreste?
+                      </button>
+                      <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        What are the accommodations like at El Agreste?
+                      </button>
                      </h2>
                      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                        <div class="accordion-body">
-                         <p>Te alojás en cabañas, estancias rurales y hospedajes cálidos, con el confort necesario y una atención cercana.</p>
+                         <p class="lang es">Te alojás en cabañas, estancias rurales y hospedajes cálidos, con el confort necesario y una atención cercana.</p>
+                         <p class="lang en">You will stay in cabins, rural estancias, and cozy lodgings, with the necessary comfort and personalized attention.</p>
                        </div>
                      </div>
                    </div>
-       
+
                    <div class="accordion-item">
-                     <h2 class="accordion-header" id="headingFive">
-                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                         ¿Qué pasa si el clima no acompaña?
-                       </button>
+                     <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          ¿Qué tipo de ropa debo llevar para la Patagonia?
+                        </button>
+                        <button class="accordion-button lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          What kind of clothing should I bring for Patagonia?
+                        </button>
                      </h2>
+                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                          <p class="lang es">Depende de la época del año y las actividades a realizar. Recomendaciones básicas: vestirte en capas, remeras térmicas, abrigo impermeable, calzado cómodo y protección solar.</p>
+                          <p class="lang en">It depends on the season and the activities you plan to do. Basic recommendations: dress in layers, wear thermal shirts, waterproof outerwear, comfortable footwear, and sun protection.</p>
+                       </div>
+                     </div>
+                   </div>
+              
+                   <div class="accordion-item">
+                     <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          ¿Las excursiones son aptas para todas las edades?
+                        </button>
+                        <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Are the excursions suitable for all ages?
+                        </button>
+                     </h2>
+                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                         <p class="lang es">Ofrecemos experiencias para todo público: desde caminatas suaves y pezca pacífica, hasta travesías más exigentes, escalada y aguas rápidas. ¡Consultanos según tu nivel!</p>
+                         <p class="lang en">We offer experiences for all audiences: from gentle walks and peaceful fishing to more demanding treks, climbing, and whitewater. Ask us according to your level!</p>
+                       </div>
+                     </div>
+                   </div>
+              
+                   <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              ¿Qué pasa si el clima no acompaña?
+                            </button>
+                            <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              What happens if the weather doesn’t cooperate?
+                            </button>
+                        </h2>
+
                      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                        <div class="accordion-body">
-                         <p>Tenemos actividades alternativas y políticas flexibles de reprogramación. La Patagonia siempre tiene algo para ofrecer.</p>
+                         <p class="lang es">Tenemos actividades alternativas y políticas flexibles de reprogramación. La Patagonia siempre tiene algo para ofrecer.</p>
+                         <p class="lang en">We have alternative activities and flexible rescheduling policies. Patagonia always has something to offer.</p>
                        </div>
                      </div>
                    </div>
-       
                  </div>
                </div>
              </div>
@@ -812,182 +998,7 @@
        </section>
        
       <!-- ./ faq-section -->
-      <!-- <section class="testimonial-section-3 pt-120 pb-120">
-         <div class="container">
-             <div class="row">
-                 <div class="col-lg-6">
-                     <div class="testi-left-img">
-                         <div class="testi-img"><img src="assets/img/testi/testi-img-1.png" alt="testi"></div>
-                         <div class="client-box">
-                             <h4 class="client-title">5m+ Trusted <br>Global Clients</h4>
-                             <div class="line"><img src="assets/img/icon/line.png" alt="line"></div>
-                             <ul class="client-list">
-                                 <li><img src="assets/img/testi/client-img-1.png" alt="img"></li>
-                                 <li><img src="assets/img/testi/client-img-2.png" alt="img"></li>
-                                 <li><img src="assets/img/testi/client-img-3.png" alt="img"></li>
-                                 <li class="icon"><i class="fa-solid fa-plus"></i></li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-6">
-                     <div class="testi-right-content">
-                         <div class="section-heading mb-30">
-                             <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">Our Testimonials</h4>
-                             <h2 class="section-title" data-text-animation="fade-in-right" data-split="char" data-duration="0.6" data-stagger="0.03">135+ People Say About Our Tech Services</h2>
-                         </div>
-                         <div class="testi-carousel-2 swiper">
-                             <div class="swiper-wrapper">
-                                 <div class="swiper-slide">
-                                     <div class="testi-item-3">
-                                         <div class="author-box">
-                                             <img src="assets/img/icon/quote.png" alt="img">
-                                             <h4 class="name">Angelina White</h4>
-                                             <span>Tourist Guide</span>
-                                         </div>
-                                         <p>Climb the mountain not to plant your flag but to embrace 
-                                             the ways challenge, enjoy the air, and behold the. Climb it
-                                             see the world, not so the world can see you.
-                                         </p>
-                                         <div class="testi-bottom">
-                                             <img src="assets/img/testi/sponsor.png" alt="sponsor">
-                                             <ul class="testi-review">
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="swiper-slide">
-                                     <div class="testi-item-3">
-                                         <div class="author-box">
-                                             <img src="assets/img/icon/quote.png" alt="img">
-                                             <h4 class="name">Angelina White</h4>
-                                             <span>Tourist Guide</span>
-                                         </div>
-                                         <p>Climb the mountain not to plant your flag but to embrace 
-                                             the ways challenge, enjoy the air, and behold the. Climb it
-                                             see the world, not so the world can see you.
-                                         </p>
-                                         <div class="testi-bottom">
-                                             <img src="assets/img/testi/sponsor.png" alt="sponsor">
-                                             <ul class="testi-review">
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="swiper-slide">
-                                     <div class="testi-item-3">
-                                         <div class="author-box">
-                                             <img src="assets/img/icon/quote.png" alt="img">
-                                             <h4 class="name">Angelina White</h4>
-                                             <span>Tourist Guide</span>
-                                         </div>
-                                         <p>Climb the mountain not to plant your flag but to embrace 
-                                             the ways challenge, enjoy the air, and behold the. Climb it
-                                             see the world, not so the world can see you.
-                                         </p>
-                                         <div class="testi-bottom">
-                                             <img src="assets/img/testi/sponsor.png" alt="sponsor">
-                                             <ul class="testi-review">
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                                 <li><i class="fa-sharp fa-solid fa-star"></i></li>
-                                             </ul>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="swiper-pagination"></div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         </section> -->
-      <!-- ./ testimonial-section 
-      <section class="blog-section-3 pt-120 pb-120 fade-wrapper">
-         <div class="container">
-           <div class="section-heading text-center">
-             <h2 class="section-title" data-duration="0.6" data-split="char" data-stagger="0.03" data-text-animation="fade-in-right">
-               Últimas novedades de nuestro blog
-             </h2>
-           </div>
-           <div class="row gy-lg-0 gy-4 fade-wrapper">
-       
-             <div class="col-lg-4 col-md-6 fade-top">
-               <div class="post-card-2 post-card-3">
-                 <div class="post-thumb">
-                   <img alt="post" src="assets/fotos-agreste/1.jpg"  />
-                 </div>
-                 <div class="post-content-wrap">
-                   <div class="post-content">
-                     <ul class="post-meta">
-                       <li>28 de junio de 2025</li>
-                     </ul>
-                     <h3 class="title"><a href="">Explorando los senderos del sur</a></h3>
-                     <div class="border-line"></div>
-                     <div class="post-bottom">
-                       <a class="read-more" href="">Leer más</a>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-       
-             <div class="col-lg-4 col-md-6 fade-top">
-               <div class="post-card-2 post-card-3">
-                 <div class="post-thumb">
-                   <img alt="post" src="assets/fotos-agreste/2.jpg" />
-                 </div>
-                 <div class="post-content-wrap">
-                   <div class="post-content">
-                     <ul class="post-meta">
-                       <li>28 de junio de 2025</li>
-                     </ul>
-                     <h3 class="title"><a href="">Consejos para un viaje inolvidable</a></h3>
-                     <div class="border-line"></div>
-                     <div class="post-bottom">
-                       <a class="read-more" href="">Leer más</a>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-       
-             <div class="col-lg-4 col-md-6 fade-top">
-               <div class="post-card-2 post-card-3">
-                 <div class="post-thumb">
-                   <img alt="post" src="assets//fotos-agreste/3.jpg" />
-                 </div>
-                 <div class="post-content-wrap">
-                   <div class="post-content">
-                     <ul class="post-meta">
-                       <li>28 de junio de 2025</li>
-                     </ul>
-                     <h3 class="title"><a href="">Historias que nacen en la Patagonia</a></h3>
-                     <div class="border-line"></div>
-                     <div class="post-bottom">
-                       <a class="read-more" href="">Leer más</a>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-       
-           </div>
-         </div>
-       </section>-->
+      
        
        
       <!-- ./ blog-section -->
@@ -1000,11 +1011,13 @@
             <div class="footer-top row">
                <div class="col-lg-12">
                   <div class="footer-subscribe-wrap">
-                     <h3 class="footer-subscribe-title">Suscribite al boletín</h3>
+                     <h3 class="footer-subscribe-title lang es">Suscribite al boletín</h3>
+                     <h3 class="footer-subscribe-title lang en">Subscribe to the newsletter</h3>
+
                      <!-- TRADUCIR -->
                      <form action="#" class="ts-subscribe-form">
-                        <input style="background-color: #ffffff29;"  class="form-control" name="email" placeholder="Correo Electrónico" type="email"/>
-                        <button class="submit ts-primary-btn">Me anoto</button> <!-- TRADUCIR -->
+                        <input style="background-color: #ffffff29;"  class="form-control" name="email" placeholder="Correo Electrónico | E-mail" type="email"/>
+                        <button class="submit ts-primary-btn">Me anoto | I'm in!</button> <!-- TRADUCIR -->
                      </form>
                   </div>
                </div>
@@ -1014,23 +1027,24 @@
                   <div class="footer-widget">
                      <div class="widget-header logo-header">
                         <div class="footer-logo">
-                           <a href="index.html"><img alt="logo" src="assets/img/logo/logo_agreste.png"/></a>
+                           <a href="index.html"><img alt="logo" src="assets/img/logo/logo_agreste_blanco.png"/></a>
                         </div>
                      </div>
-                     <p class="mb-20">Conecta con la naturaleza, descubrí paisajes únicos y sentí la libertad de lo auténtico.
-                        EL AGRESTE te guía por el corazón de la Patagonia.</p>
+                     <p class="mb-20 lang es">Conecta con la naturaleza, descubrí paisajes únicos y sentí la libertad de lo auténtico. EL AGRESTE te guía por el corazón de la Patagonia.</p>
+                     <p class="mb-20 lang en">Connect with nature, discover unique landscapes, and feel the freedom of authenticity. EL AGRESTE guides you through the heart of Patagonia.</p>
+
                      <ul class="social-list">
                         <li class="facebook">
-                           <a href="#"><i class="fab fa-facebook-f"></i></a>
+                           <a href="https://www.facebook.com/agrestepatagonia/"><i class="fab fa-facebook-f"></i></a>
                         </li>
                         <li class="instagram">
-                           <a href="#"><i class="fab fa-instagram"></i></a>
+                           <a href="https://www.instagram.com/agrestepatagonia/"><i class="fab fa-instagram"></i></a>
                         </li>
                         <li class="instagram">
-                           <a href="#"><i class="fab fa-tiktok"></i></a>
+                           <a href="https://www.tiktok.com/@elagreste.turismo"><i class="fab fa-tiktok"></i></a>
                         </li>
                         <li class="instagram">
-                           <a href="#"><i class="fab fa-whatsapp"></i></a>
+                           <a href="https://wa.me/5492974178284"><i class="fab fa-whatsapp"></i></a>
                         </li>
                      </ul>
                   </div>
@@ -1038,38 +1052,39 @@
                <div class="col-lg-9 col-md-6 p-5">
                   <div class="contact-form">
                      <div class="section-heading mb-30">
-                         <h2 class="section-title" style="color: white;">¡Contáctanos!</h2>
+                         <h2 class="section-title lang es" style="color: white;">¡Contáctanos!</h2>
+                         <h2 class="section-title lang en" style="color: white;">Contact Us!</h2>
                      </div>
                      <div id="form-messages"></div>
                      <form action="contact.php" method="post" id="ajax_contact" class="form-horizontal">
                          <div class="form-group row">
                              <div class="col-md-6">
                                  <div class="form-item">
-                                     <input type="name" id="name" name="name" class="form-control" placeholder="Nombre" style="background-color: #ffffff29;">
+                                     <input type="name" id="name" name="name" class="form-control" placeholder="Nombre | Name" style="background-color: #ffffff29;">
                                  </div>
                              </div>
                              <div class="col-md-6">
                                  <div class="form-item">
-                                     <input type="text" id="name-2" name="name-2" class="form-control" placeholder="Apellido" style="background-color: #ffffff29;">
+                                     <input type="text" id="name-2" name="name-2" class="form-control" placeholder="Apellido | Last name" style="background-color: #ffffff29;">
                                  </div>
                              </div>
                          </div>
                          <div class="form-group row">
                              <div class="col-md-6">
                                  <div class="form-item">
-                                     <input type="phone" id="phone" name="phone" class="form-control" placeholder="Teléfono" style="background-color: #ffffff29;">
+                                     <input type="phone" id="phone" name="phone" class="form-control" placeholder="Teléfono | Phone" style="background-color: #ffffff29;">
                                  </div>
                              </div>
                              <div class="col-md-6">
                                  <div class="form-item">
-                                     <input type="text" id="email" name="email" class="form-control" placeholder="Correo Electrónico" style="background-color: #ffffff29;">
+                                     <input type="text" id="email" name="email" class="form-control" placeholder="Correo Electrónico | E-mail" style="background-color: #ffffff29;">
                                  </div>
                              </div>
                          </div>
                          <div class="form-group row">
                              <div class="col-md-12">
                                  <div class="form-item">
-                                     <input type="text" id="subject" name="subject" class="form-control" placeholder="Asunto" style="background-color: #ffffff29;">
+                                     <input type="text" id="subject" name="subject" class="form-control" placeholder="Asunto | Subject" style="background-color: #ffffff29;">
                                  </div>
                              </div>
                          </div>
@@ -1077,12 +1092,12 @@
                              <div class="col-md-12">
                              <div class="form-item-wrap">
                                  <div class="form-item address">
-                                     <textarea id="message" name="message" cols="30" rows="5" class="form-control address" placeholder="Mensaje" style="background-color: #ffffff29;"></textarea>
+                                     <textarea id="message" name="message" cols="30" rows="5" class="form-control address" placeholder="Mensaje | Message" style="background-color: #ffffff29;"></textarea>
                                  </div>
                              </div>
                          </div>
                          <div class="submit-btn mt-10">
-                             <button id="submit" class="ts-primary-btn" type="submit">Enviar</button>
+                             <button id="submit" class="ts-primary-btn" type="submit">Enviar | Submit</button>
                          </div>
                      </form>
                  </div>
@@ -1094,19 +1109,16 @@
             <div class="container">
                <div class="row copyright-content">
                   <div class="col-md-12">
-                     <p style="text-align: center;">© 2025 El Agreste - Turismo Patagónico.</p>
-                     <!-- TRADUCIR -->
+                     <p class="lang es" style="text-align: center;">© 2025 El Agreste - Turismo Patagónico.</p>
+                     <p class="lang en" style="text-align: center;">© 2025 El Agreste - Patagonian Tourism.</p>
                   </div>
-                  <!-- <div class="col-md-6">
-                     <ul class="copyright-list">
-                        
-                     </ul>
-                  </div> -->
                </div>
             </div>
          </div>
       </footer>
       <!-- ./ footer-section -->
+     
+      
 
 
       <div id="scroll-percentage"><span id="scroll-percentage-value"></span></div>
@@ -1225,7 +1237,171 @@
                 });
               });
           </script>
+          <!--SWITCH DE IDIOMAS-->
+         <script>
+            (function () {
+              const FLAGS = { es: 'https://flagcdn.com/ar.svg', en: 'https://flagcdn.com/us.svg' };
+              const LABEL = { es: 'Español', en: 'English' };
+              const SUPPORTED = ['es','en'];
 
+              const getParamLang = () => {
+                const v = new URLSearchParams(location.search).get('lang');
+                return v && SUPPORTED.includes(v.toLowerCase()) ? v.toLowerCase() : null;
+              };
+              const getBrowserLang = () =>
+                ((navigator.languages && navigator.languages[0]) || navigator.language || '')
+                  .toLowerCase().startsWith('es') ? 'es' : 'en';
+              const other = l => (l === 'es' ? 'en' : 'es');
+
+              /*** NUEVO: aplicar textos i18n sin tocar href ***/
+              function applyI18nText(lang, root = document) {
+                // A) data-i18n-es / data-i18n-en (sirve para <a>, <button>, etc.)
+                root.querySelectorAll('[data-i18n-es],[data-i18n-en]').forEach(el => {
+                  const text = lang === 'es' ? el.getAttribute('data-i18n-es') : el.getAttribute('data-i18n-en');
+                  if (text == null) return;
+
+                  const targetSel = el.getAttribute('data-i18n-target');
+                  const target = targetSel ? el.querySelector(targetSel) : el;
+                  if (!target) return;
+
+                  if (el.hasAttribute('data-i18n-html')) {
+                    target.innerHTML = text;
+                  } else {
+                    target.textContent = text;
+                  }
+                });
+
+                // B) (Opcional) Diccionario global por clave: <span data-i18n="key">
+                if (window.LANG_DICT && window.LANG_DICT[lang]) {
+                  root.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const text = window.LANG_DICT[lang][key];
+                    if (text == null) return;
+
+                    const targetSel = el.getAttribute('data-i18n-target');
+                    const target = targetSel ? el.querySelector(targetSel) : el;
+                    if (!target) return;
+
+                    if (el.hasAttribute('data-i18n-html')) {
+                      target.innerHTML = text;
+                    } else {
+                      target.textContent = text;
+                    }
+                  });
+                }
+
+                // C) (Opcional) Títulos y etiquetas accesibles
+                root.querySelectorAll('[data-i18n-title-es],[data-i18n-title-en]').forEach(el => {
+                  const v = lang === 'es' ? el.getAttribute('data-i18n-title-es') : el.getAttribute('data-i18n-title-en');
+                  if (v != null) el.setAttribute('title', v);
+                });
+                root.querySelectorAll('[data-i18n-aria-label-es],[data-i18n-aria-label-en]').forEach(el => {
+                  const v = lang === 'es' ? el.getAttribute('data-i18n-aria-label-es') : el.getAttribute('data-i18n-aria-label-en');
+                  if (v != null) el.setAttribute('aria-label', v);
+                });
+              }
+
+              function setLanguage(lang, root=document) {
+                if (!SUPPORTED.includes(lang)) lang = 'es';
+                try { localStorage.setItem('language', lang); } catch(_) {}
+                document.documentElement.setAttribute('lang', lang);
+
+                // Mostrar/ocultar bloques por clase/atributo
+                root.querySelectorAll('.lang, [data-lang]').forEach(el => {
+                  const elLang = el.dataset.lang || (el.classList.contains('es') ? 'es'
+                                    : (el.classList.contains('en') ? 'en' : null));
+                  if (!elLang) return;
+                  if (elLang === lang) {
+                    el.style.display=''; requestAnimationFrame(()=>el.classList.remove('hidden'));
+                  } else {
+                    el.classList.add('hidden'); setTimeout(()=>{ el.style.display='none'; }, 300);
+                  }
+                });
+
+                // NUEVO: traducir textos inline (anchors, botones, etc.) sin tocar href
+                applyI18nText(lang, root);
+
+                // Actualizar TODOS los selectores (drop/down/up)
+                document.querySelectorAll('.language-selector.bs-lang').forEach(c => {
+                  updateSelectorUI(c, lang);
+                  closeMenu(c);
+                });
+              }
+              window.LangSwitch = { setLanguage };
+
+              function updateSelectorUI(container, lang) {
+                const toggle = container.querySelector('.language-toggle');
+                const menu   = container.querySelector('.language-menu');
+                if (toggle) {
+                  const img = toggle.querySelector('.flag');
+                  const lab = toggle.querySelector('.label');
+                  if (img) { img.src = FLAGS[lang]; img.alt = LABEL[lang]; }
+                  if (lab) lab.textContent = LABEL[lang];
+                  toggle.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a Español');
+                }
+                if (menu) {
+                  const o = other(lang);
+                  const onlyFlags = container.classList.contains('flags-only');
+                  const itemLabel = onlyFlags ? '' : `<span>${LABEL[o]}</span>`;
+                  const imgSize   = onlyFlags ? 24 : 18;
+
+                  menu.innerHTML = `
+                    <li>
+                      <button type="button" role="menuitemradio" aria-checked="false"
+                              data-lang="${o}" aria-label="${LABEL[o]}" title="${LABEL[o]}">
+                        <img src="${FLAGS[o]}" alt="" width="${imgSize}">${itemLabel}
+                      </button>
+                    </li>`;
+                  const btn = menu.querySelector('[data-lang]');
+                  btn.onclick = () => setLanguage(o);
+                }
+              }
+
+              function openMenu(c){
+                const t=c.querySelector('.language-toggle'), m=c.querySelector('.language-menu');
+                c.classList.add('show'); t.classList.add('show'); m.classList.add('show');
+                t.setAttribute('aria-expanded','true');
+              }
+              function closeMenu(c){
+                const t=c.querySelector('.language-toggle'), m=c.querySelector('.language-menu');
+                c.classList.remove('show'); t.classList.remove('show'); m.classList.remove('show');
+                t.setAttribute('aria-expanded','false');
+              }
+              const isOpen = c => c.classList.contains('show');
+
+              function initSelector(c){
+                const t=c.querySelector('.language-toggle'), m=c.querySelector('.language-menu');
+                if(!t||!m) return;
+
+                // Click en botón: toggle del menú
+                t.addEventListener('click', e => {
+                  e.stopPropagation();
+                  isOpen(c) ? closeMenu(c) : openMenu(c);
+                });
+
+                // Cerrar al hacer click fuera
+                document.addEventListener('click', e => { if (!c.contains(e.target)) closeMenu(c); });
+
+                // Teclado
+                t.addEventListener('keydown', e => {
+                  if (e.key==='Enter' || e.key===' ') { e.preventDefault(); isOpen(c)?closeMenu(c):openMenu(c); }
+                });
+                m.addEventListener('keydown', e => {
+                  if (e.key==='Escape'){ e.preventDefault(); closeMenu(c); t.focus(); }
+                });
+              }
+
+              function init(){
+                document.querySelectorAll('.language-selector.bs-lang').forEach(initSelector);
+                const start = getParamLang() || localStorage.getItem('language') || getBrowserLang() || 'es';
+                setLanguage(start);
+              }
+              document.addEventListener('DOMContentLoaded', init);
+            })();
+         </script>
+
+
+  
 
 
        

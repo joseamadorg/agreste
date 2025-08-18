@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+
+        <!-- Site Title -->
+      <title>EL AGRESTE - TURISMO PATAGONICO</title>
+
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+        <!-- CSS here -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+        <link rel="stylesheet" href="assets/css/venobox.min.css">
+        <link rel="stylesheet" href="assets/css/odometer.min.css">
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <link rel="stylesheet" href="assets/css/daterangepicker.css">
+        <link rel="stylesheet" href="assets/css/swiper.min.css">
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+
+    <body>
+        
+        <!-- Preloader -->
+      <!-- <div id="preloader">
+         <div class="container-preloader" id="container">
+            <div class="preloader-anim">
+               <div class="loading" data-loading-text="Cargando..."></div>
+            </div>
+            <div class="preloader-area area-left"></div>
+            <div class="preloader-area area-right"></div>
+         </div>
+      </div> -->
+      <!-- ./ preloader -->
+      <!-- header-area-start -->
+     <header class="header sticky-active">
+         <div class="top-bar">
+            <div class="container header-container">
+               <div class="top-bar-inner">
+                  <div class="top-bar-left">
+                     <div class="top-bar-social">
+                        <ul class="top-social-list">
+                           <li>
+                              <a href="https://www.facebook.com/agrestepatagonia"><i class="fab fa-facebook-f"></i></a>
+                           </li>
+                           <li>
+                              <a href="https://www.instagram.com/agrestepatagonia/"><i class="fab fa-instagram"></i></a>
+                           </li>
+                           <li>
+                              <a href="https://www.tiktok.com/@elagreste.turismo"><i class="fab fa-tiktok"></i></a>
+                           </li>
+                        </ul>
+                     </div>
+                     <ul class="top-left-list">
+                        <li class="country-list">
+                           <div id="tope" class="dropdown language-selector bs-lang">
+                              <span style="color: white;">Idioma | Language</span>
+                            <button class="btn btn-outline-secondary dropdown-toggle language-toggle"
+                                    type="button" aria-haspopup="true" aria-expanded="false"
+                                    aria-label="Change language">
+                              <img class="flag" alt="" width="20">
+                            
+                            </button>
+
+                            <ul class="dropdown-menu language-menu" role="menu" aria-label="Language menu"></ul>
+                          </div>
+
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="top-bar-right">
+                     <ul class="top-bar-list">
+                        <li><i class="fa-solid fa-location-dot"></i><span>Patagonia - Argentina | Chile</span></li>
+                        <li><i class="fa-regular fa-envelope"></i><a href="mailto:contacto@agrestepatagonia.com">contacto@agrestepatagonia.com</a></li>
+                        <li>
+                          <i class="fa-brands fa-whatsapp"></i>
+                          <a href="https://wa.me/5492974178284" target="_blank">Whatsapp</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="primary-header">
+            <div class="container header-container">
+               <div class="primary-header-inner">
+                  <div class="header-logo d-lg-block">
+                     <a href="index.html">
+                     <img alt="logo" src="assets/img/logo/logo_agreste.png" style="max-width: 165px; padding: 1rem;"/>
+                     </a>
+                  </div>
+                  <div class="header-right-wrap">
+                     <div class="header-menu-wrap">
+                        <div class="mobile-menu-items">
+                          <ul>
+                              <li class="menu-item">
+                                <a href="index.html"
+                                  data-i18n-es="Inicio"
+                                  data-i18n-en="Home">Inicio</a>
+                              </li>
+
+                              <li>
+                                <a href="nosotros-us.html"
+                                  data-i18n-es="Nosotros"
+                                  data-i18n-en="Our Venture">Nosotros</a>
+                              </li>
+
+                              <li class="menu-item-has-children">
+                                <a href="https://agrestepatagonia.com/locations/"
+                                  data-i18n-es="Destinos"
+                                  data-i18n-en="Locations">Destinos</a>
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/sarmiento"
+                                      data-i18n-es="SARMIENTO"
+                                      data-i18n-en="SARMIENTO">SARMIENTO</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/esquel"
+                                      data-i18n-es="ESQUEL"
+                                      data-i18n-en="ESQUEL">ESQUEL</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/rio-pico"
+                                      data-i18n-es="RÍO PICO"
+                                      data-i18n-en="RIO PICO">RIO PICO</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/comodoro"
+                                      data-i18n-es="COMODORO"
+                                      data-i18n-en="COMODORO">COMODORO</a>
+                                  </li>
+                                  <li class="menu-item-has-children">
+                                    <a href=""
+                                      data-i18n-es="INTERNACIONAL"
+                                      data-i18n-en="INTERNATIONAL">INTERNACIONAL</a>
+                                    <ul>
+                                      <li>
+                                        <a href="https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/"
+                                          data-i18n-es="Chile"
+                                          data-i18n-en="Chile">Chile</a>
+                                      </li>
+                                      <li>
+                                        <a href="https://agrestepatagonia.com/locations/pura-vida-costa-rica/"
+                                          data-i18n-es="Costa Rica"
+                                          data-i18n-en="Costa Rica">Costa Rica</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+
+                              <li class="menu-item-has-children">
+                                <a href="https://agrestepatagonia.com/locations/"
+                                  data-i18n-es="Actividades"
+                                  data-i18n-en="Activities">Actividades</a>
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/aventura-adventure/"
+                                      data-i18n-es="AVENTURA"
+                                      data-i18n-en="ADVENTURE">AVENTURA</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/ecoturismo-ecoturism/"
+                                      data-i18n-es="ECOTURISMO"
+                                      data-i18n-en="ECOTOURISM">ECOTURISMO</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/fotografia-photography/"
+                                      data-i18n-es="FOTOGRAFÍA"
+                                      data-i18n-en="PHOTOGRAPHY">FOTOGRAFÍA</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/pesca-fishing/"
+                                      data-i18n-es="PESCA"
+                                      data-i18n-en="FISHING">PESCA</a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="https://agrestepatagonia.com/locations/tag/senderismo-hiking/"
+                                      data-i18n-es="SENDERISMO"
+                                      data-i18n-en="HIKING">SENDERISMO</a>
+                                  </li>
+                                </ul>
+                              </li>
+
+                              <li class="menu-item">
+                                <a href="https://agrestepatagonia.com/locations/galeria-de-fotos-photo-gallery/"
+                                  data-i18n-es="Galería"
+                                  data-i18n-en="Photo Gallery">Galería</a>
+                              </li>
+
+                              <li class="menu-item">
+                                <a href="https://agrestepatagonia.com/contacto-contact.html"
+                                  data-i18n-es="Contacto"
+                                  data-i18n-en="Contact Us">Contacto</a>
+                              </li>
+                            </ul>
+                         
+                        </div>
+                     </div>
+                     <!-- /.header-menu-wrap -->
+                     <div class="header-right">
+                        
+                        <div class="header-right-item d-lg-none d-md-block">
+                           <a class="mobile-side-menu-toggle" href="javascript:void(0)"><i class="fa-sharp fa-solid fa-bars"></i></a>
+                        </div>
+                     </div>
+                     <!-- /.header-right -->
+                  </div>
+               </div>
+               <!-- /.primary-header-inner -->
+            </div>
+         </div>
+      </header>
+     <!-- /.Main Header -->
+
+       
+        <!--/.sidebar-area-->
+
+        <div class="mobile-side-menu">
+         <div class="side-menu-content">
+            <div class="side-menu-head">
+               <a href="index.html"><img alt="logo" src="assets/img/logo/logo_agreste.png"/></a>
+               <button class="mobile-side-menu-close"><i class="fa-regular fa-xmark"></i></button>
+               
+              </div>
+              <div class="side-menu-wrap"></div>
+              <!-- Contenedor dropup -->
+                <div class="dropdown dropup language-selector bs-lang">
+                  <span>Idioma | Language</span>
+                  <button class="btn btn-outline-secondary dropdown-toggle language-toggle"
+                          type="button" aria-haspopup="true" aria-expanded="false"
+                          aria-label="Change language">
+                    <img class="flag" alt="" width="20">
+                  
+                  </button>
+
+                  <ul class="dropdown-menu language-menu" role="menu" aria-label="Language menu"></ul>
+                </div>
+         </div>
+        </div>
+        <!-- /.mobile-side-menu -->
+        <div class="mobile-side-menu-overlay"></div>
+
+        <section class="page-header" data-background="assets/img/bg-img/header_back.webp">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="page-header-content text-center">
+                    <h1 style="font-size: 3rem; font-family: &quot;Abril Fatface&quot;, serif; color: #fff; background-color: #007f80;" class="title py-2 px-3">EL AGRESTE</h1><br>
+                    <h3 style="color: #fff; background-color: #007f80; width: fit-content; margin: auto;" class="py-2 px-3 lang es" >¡Bienvenidos!</h3>
+                    <h3 style="color: #fff; background-color: #007f80; width: fit-content; margin: auto;" class="py-2 px-3 lang en" >Welcome!</h3>
+                </div>
+            </div>
+        </section>
+        <!-- ./ page-header -->
+
+        <section class="about-section pt-120 overflow-hidden">
+            <div class="container about-container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <video loop muted autoplay class="video_home_1" src="assets/img/bg-img/grupo_tour.mp4"></video>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content fade-wrapper">
+                            <div class="section-heading mb-30">
+                                <h2 class="section-title-us lang es">Te conectamos con la esencia de la Patagonia</h2>
+                                <h2 class="section-title-us lang en">We connect you with the essence of Patagonia</h2>
+                            </div>
+                            <div class="about-desc fade-top">
+                                <p class="lang es">Somos un operador turístico experimentado y una empresa de gestión de destinos cuyo objetivo es asegurar que cada cliente esté altamente satisfecho con la planificación, el viaje y la experiencia de disfrutar de la Patagonia. </p>
+                                <p class="lang en">We are an experienced tour operator and destination management company whose goal is to ensure that every client is highly satisfied with the planning, the trip, and the experience of enjoying Patagonia.</p>
+
+                                <h4 class="about-text lang es">Hablá con nuestro equipo local al <a href="tel:+5492974178284">+54 9 2974-17-8284</a></h4>
+                                <h4 class="about-text lang en">Talk to our local team at <a href="tel:+5492974178284">+54 9 2974-17-8284</a></h4>
+                            </div>
+                            <ul class="about-list fade-top pl-4">
+                               <li class="lang es"><i class="fa-sharp fa-solid fa-circle-check"></i>Itinerarios y actividades seleccionados junto a comunidades locales</li>
+                               <li class="lang en"><i class="fa-sharp fa-solid fa-circle-check"></i>Itineraries and activities selected together with local communities</li>
+                                                           
+                               <li class="lang es"><i class="fa-sharp fa-solid fa-circle-check"></i>Comprometidos con el turismo sustentable y responsable</li>
+                               <li class="lang en"><i class="fa-sharp fa-solid fa-circle-check"></i>Committed to sustainable and responsible tourism</li>
+                                                           
+                               <li class="lang es"><i class="fa-sharp fa-solid fa-circle-check"></i>Historias reales, lugares genuinos, vivencias inolvidables</li>
+                               <li class="lang en"><i class="fa-sharp fa-solid fa-circle-check"></i>Real stories, genuine places, unforgettable experiences</li>
+                                                           
+                               <li class="lang es"><i class="fa-sharp fa-solid fa-circle-check"></i>Red de anfitriones y guías apasionados por su tierra</li>
+                               <li class="lang en"><i class="fa-sharp fa-solid fa-circle-check"></i>A network of hosts and guides passionate about their land</li>
+                            </ul>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- ./ about-section -->
+
+
+
+        <section class="promo-section pt-50 pb-50">
+            <div class="container">
+                <div class="row">
+                    <!-- Contenido de texto -->
+                    <div class="col-md-6">
+                        <div class="blog-details-content mt-20">
+                            <h2 class="details-title mb-20 lang es">Dejá que la Patagonia te transforme</h2>
+                            <h2 class="details-title mb-20 lang en">Let Patagonia transform you</h2>
+        
+                            <p class="mb-20 lang es">
+                                  En <strong>El Agreste</strong>, te acercamos a experiencias que permiten descubrir la Patagonia de una forma íntima, auténtica y consciente. No se trata solo de visitar un lugar, sino de integrarse con el paisaje, la historia y la gente que lo habita.
+                              </p>
+                              <p class="mb-20 lang en">
+                                  At <strong>El Agreste</strong>, we bring you closer to experiences that allow you to discover Patagonia in an intimate, authentic, and mindful way. It’s not just about visiting a place, but about integrating with the landscape, the history, and the people who inhabit it.
+                              </p>
+
+                              <p class="mb-20 lang es">
+                                  Nuestros recorridos están pensados para quienes buscan más que un viaje: una vivencia transformadora. Ubicados en el corazón del sur argentino, ofrecemos alojamiento acogedor ideal para grupos familiares o amigos. Ya sea que vengas a caminar, cabalgar, fotografiar o simplemente descansar, te recibimos con hospitalidad patagónica.
+                              </p>
+                              <p class="mb-20 lang en">
+                                  Our tours are designed for those who seek more than a trip: a transformative experience. Located in the heart of southern Argentina, we offer cozy accommodations ideal for families or groups of friends. Whether you come to hike, ride, photograph, or simply rest, we welcome you with Patagonian hospitality.
+                              </p>
+
+                              <p class="mb-20 lang es">
+                                  Cada una de las actividades es diseñada junto a comunidades locales. Esto no solo enriquece tu experiencia con relatos vivos, sino que también promueve un turismo responsable, donde el impacto positivo se redistribuye en la región. Conectate con la naturaleza sin intermediarios.
+                              </p>
+                              <p class="mb-20 lang en">
+                                  Each activity is designed together with local communities. This not only enriches your experience with living stories but also promotes responsible tourism, where the positive impact is redistributed in the region. Connect with nature without intermediaries.
+                              </p>
+
+                              <p class="mb-20 lang es">
+                                  Desde caminatas en senderos poco transitados hasta cenas a la luz de las estrellas o almuerzos a la orilla del lago, cada momento junto a <strong>El Agreste</strong> busca reconectar lo esencial: el paisaje, la comunidad y vos. Ideal para quienes valoran el silencio, la naturaleza y la riqueza de lo simple.
+                              </p>
+                              <p class="mb-20 lang en">
+                                  From walks on little-traveled trails to dinners under the stars or lunches by the lake, every moment with <strong>El Agreste</strong> seeks to reconnect with what is essential: the landscape, the community, and you. Ideal for those who value silence, nature, adventure, and the richness of simplicity.
+                              </p>
+                        </div>
+                    </div>
+        
+                    <!-- Galería visual -->
+                    <div class="col-md-6">
+                        <img src="assets/img/bg-img/collage.jpg" alt="Entorno natural patagónico" class="img-fluid shadow">
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+
+        <section class="faq-section pt-120 pb-120 overflow-hidden">
+         <div class="bg-shape" data-background="assets/img/bg-img/bg_1.webp" style="background-image: url('assets/img/bg-img/bg_1.webp');"></div>
+         <div class="container">
+           <div class="section-heading text-center mb-40">
+            <h4 class="sub-heading lang es" data-duration="1.5" data-text-animation="fade-in">Preguntas Frecuentes</h4>
+            <h4 class="sub-heading lang en" data-duration="1.5" data-text-animation="fade-in">Frequently Asked Questions</h4>
+            <h2 class="section-title lang es" data-duration="0.6" data-split="char" data-stagger="0.03" data-text-animation="fade-in-right">Antes del viaje de tu vida tenes que saber:</h2>
+            <h2 class="section-title lang en" data-duration="0.6" data-split="char" data-stagger="0.03" data-text-animation="fade-in-right">Before the trip of your life, you need to know:</h2>
+          </div>
+           <div class="row align-items-center">
+             <div class="col-lg-6">
+               <div class="faq-content">
+                 <div class="accordion" id="accordionExample">
+                   
+                   <div class="accordion-item">
+                     <h2 class="accordion-header" id="headingTwo">
+                       <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          ¿Hay opciones de pago flexibles?
+                        </button>
+                        <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Are there flexible payment options?
+                        </button>
+                      </h2>
+                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                         <p class="lang es">¡Sí! Podés reservar con seña. Aceptamos transferencias, tarjetas y efectivo en moneda argentina o extranjera.</p>
+                         <p class="lang en">Yes! You can book with a deposit. We accept bank transfers, cards, and cash in Argentine or foreign currency.</p>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="accordion-item">
+                     <h2 class="accordion-header" id="headingFour">
+                      <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        ¿Cómo son los alojamientos en El Agreste?
+                      </button>
+                      <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        What are the accommodations like at El Agreste?
+                      </button>
+                     </h2>
+                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                         <p class="lang es">Te alojás en cabañas, estancias rurales y hospedajes cálidos, con el confort necesario y una atención cercana.</p>
+                         <p class="lang en">You will stay in cabins, rural estancias, and cozy lodgings, with the necessary comfort and personalized attention.</p>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="accordion-item">
+                     <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          ¿Qué tipo de ropa debo llevar para la Patagonia?
+                        </button>
+                        <button class="accordion-button lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          What kind of clothing should I bring for Patagonia?
+                        </button>
+                     </h2>
+                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                          <p class="lang es">Depende de la época del año y las actividades a realizar. Recomendaciones básicas: vestirte en capas, remeras térmicas, abrigo impermeable, calzado cómodo y protección solar.</p>
+                          <p class="lang en">It depends on the season and the activities you plan to do. Basic recommendations: dress in layers, wear thermal shirts, waterproof outerwear, comfortable footwear, and sun protection.</p>
+                       </div>
+                     </div>
+                   </div>
+              
+                   <div class="accordion-item">
+                     <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          ¿Las excursiones son aptas para todas las edades?
+                        </button>
+                        <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Are the excursions suitable for all ages?
+                        </button>
+                     </h2>
+                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                         <p class="lang es">Ofrecemos experiencias para todo público: desde caminatas suaves y pezca pacífica, hasta travesías más exigentes, escalada y aguas rápidas. ¡Consultanos según tu nivel!</p>
+                         <p class="lang en">We offer experiences for all audiences: from gentle walks and peaceful fishing to more demanding treks, climbing, and whitewater. Ask us according to your level!</p>
+                       </div>
+                     </div>
+                   </div>
+              
+                   <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed lang es" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              ¿Qué pasa si el clima no acompaña?
+                            </button>
+                            <button class="accordion-button collapsed lang en" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              What happens if the weather doesn’t cooperate?
+                            </button>
+                        </h2>
+
+                     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                       <div class="accordion-body">
+                         <p class="lang es">Tenemos actividades alternativas y políticas flexibles de reprogramación. La Patagonia siempre tiene algo para ofrecer.</p>
+                         <p class="lang en">We have alternative activities and flexible rescheduling policies. Patagonia always has something to offer.</p>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+       
+             <div class="col-lg-6 pl-2">
+               <video class="video_home_1" src="assets/img/bg-img/grupo_tour.mp4" autoplay loop muted></video>
+             </div>
+           </div>
+         </div>
+       </section>
+
+      <footer class="footer-section overflow-hidden">
+         <div class="bg-img">
+            <video src="assets/img/bg-img/fondo_footer.mp4" autoplay muted loop></video>
+         </div>
+         <div class="overlay"></div>
+         <div class="container">
+            <div class="footer-top row">
+               <div class="col-lg-12">
+                  <div class="footer-subscribe-wrap">
+                     <h3 class="footer-subscribe-title lang es">Suscribite al boletín</h3>
+                     <h3 class="footer-subscribe-title lang en">Subscribe to the newsletter</h3>
+
+                     <!-- TRADUCIR -->
+                     <form action="#" class="ts-subscribe-form">
+                        <input style="background-color: #ffffff29;"  class="form-control" name="email" placeholder="Correo Electrónico | E-mail" type="email"/>
+                        <button class="submit ts-primary-btn">Me anoto | I'm in!</button> <!-- TRADUCIR -->
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="row footer-wrap">
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <div class="widget-header logo-header">
+                        <div class="footer-logo">
+                           <a href="index.html"><img alt="logo" src="assets/img/logo/logo_agreste_blanco.png"/></a>
+                        </div>
+                     </div>
+                     <p class="mb-20 lang es">Conecta con la naturaleza, descubrí paisajes únicos y sentí la libertad de lo auténtico. EL AGRESTE te guía por el corazón de la Patagonia.</p>
+                     <p class="mb-20 lang en">Connect with nature, discover unique landscapes, and feel the freedom of authenticity. EL AGRESTE guides you through the heart of Patagonia.</p>
+
+                     <ul class="social-list">
+                        <li class="facebook">
+                           <a href="https://www.facebook.com/agrestepatagonia/"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li class="instagram">
+                           <a href="https://www.instagram.com/agrestepatagonia/"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li class="instagram">
+                           <a href="https://www.tiktok.com/@elagreste.turismo"><i class="fab fa-tiktok"></i></a>
+                        </li>
+                        <li class="instagram">
+                           <a href="https://wa.me/5492974178284"><i class="fab fa-whatsapp"></i></a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-9 col-md-6 p-5">
+                  <div class="contact-form">
+                     <div class="section-heading mb-30">
+                         <h2 class="section-title lang es" style="color: white;">¡Contáctanos!</h2>
+                         <h2 class="section-title lang en" style="color: white;">Contact Us!</h2>
+                     </div>
+                     <div id="form-messages"></div>
+                     <form action="contact.php" method="post" id="ajax_contact" class="form-horizontal">
+                         <div class="form-group row">
+                             <div class="col-md-6">
+                                 <div class="form-item">
+                                     <input type="name" id="name" name="name" class="form-control" placeholder="Nombre | Name" style="background-color: #ffffff29;">
+                                 </div>
+                             </div>
+                             <div class="col-md-6">
+                                 <div class="form-item">
+                                     <input type="text" id="name-2" name="name-2" class="form-control" placeholder="Apellido | Last name" style="background-color: #ffffff29;">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <div class="col-md-6">
+                                 <div class="form-item">
+                                     <input type="phone" id="phone" name="phone" class="form-control" placeholder="Teléfono | Phone" style="background-color: #ffffff29;">
+                                 </div>
+                             </div>
+                             <div class="col-md-6">
+                                 <div class="form-item">
+                                     <input type="text" id="email" name="email" class="form-control" placeholder="Correo Electrónico | E-mail" style="background-color: #ffffff29;">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <div class="col-md-12">
+                                 <div class="form-item">
+                                     <input type="text" id="subject" name="subject" class="form-control" placeholder="Asunto | Subject" style="background-color: #ffffff29;">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <div class="col-md-12">
+                             <div class="form-item-wrap">
+                                 <div class="form-item address">
+                                     <textarea id="message" name="message" cols="30" rows="5" class="form-control address" placeholder="Mensaje | Message" style="background-color: #ffffff29;"></textarea>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="submit-btn mt-10">
+                             <button id="submit" class="ts-primary-btn" type="submit">Enviar | Submit</button>
+                         </div>
+                     </form>
+                 </div>
+               </div>
+               
+            </div>
+         </div>
+         <div class="copyright-area">
+            <div class="container">
+               <div class="row copyright-content">
+                  <div class="col-md-12">
+                     <p class="lang es" style="text-align: center;">© 2025 El Agreste - Turismo Patagónico.</p>
+                     <p class="lang en" style="text-align: center;">© 2025 El Agreste - Patagonian Tourism.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+         <!-- ./ footer-section -->
+
+        <div id="scroll-percentage"><span id="scroll-percentage-value"></span></div>
+        <!--scrollup-->
+
+        <!-- JS here -->
+
+        <script>
+            (function () {
+              const FLAGS = { es: 'https://flagcdn.com/ar.svg', en: 'https://flagcdn.com/us.svg' };
+              const LABEL = { es: 'Español', en: 'English' };
+              const SUPPORTED = ['es','en'];
+
+              const getParamLang = () => {
+                const v = new URLSearchParams(location.search).get('lang');
+                return v && SUPPORTED.includes(v.toLowerCase()) ? v.toLowerCase() : null;
+              };
+              const getBrowserLang = () =>
+                ((navigator.languages && navigator.languages[0]) || navigator.language || '')
+                  .toLowerCase().startsWith('es') ? 'es' : 'en';
+              const other = l => (l === 'es' ? 'en' : 'es');
+
+              /*** NUEVO: aplicar textos i18n sin tocar href ***/
+              function applyI18nText(lang, root = document) {
+                // A) data-i18n-es / data-i18n-en (sirve para <a>, <button>, etc.)
+                root.querySelectorAll('[data-i18n-es],[data-i18n-en]').forEach(el => {
+                  const text = lang === 'es' ? el.getAttribute('data-i18n-es') : el.getAttribute('data-i18n-en');
+                  if (text == null) return;
+
+                  const targetSel = el.getAttribute('data-i18n-target');
+                  const target = targetSel ? el.querySelector(targetSel) : el;
+                  if (!target) return;
+
+                  if (el.hasAttribute('data-i18n-html')) {
+                    target.innerHTML = text;
+                  } else {
+                    target.textContent = text;
+                  }
+                });
+
+                // B) (Opcional) Diccionario global por clave: <span data-i18n="key">
+                if (window.LANG_DICT && window.LANG_DICT[lang]) {
+                  root.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const text = window.LANG_DICT[lang][key];
+                    if (text == null) return;
+
+                    const targetSel = el.getAttribute('data-i18n-target');
+                    const target = targetSel ? el.querySelector(targetSel) : el;
+                    if (!target) return;
+
+                    if (el.hasAttribute('data-i18n-html')) {
+                      target.innerHTML = text;
+                    } else {
+                      target.textContent = text;
+                    }
+                  });
+                }
+
+                // C) (Opcional) Títulos y etiquetas accesibles
+                root.querySelectorAll('[data-i18n-title-es],[data-i18n-title-en]').forEach(el => {
+                  const v = lang === 'es' ? el.getAttribute('data-i18n-title-es') : el.getAttribute('data-i18n-title-en');
+                  if (v != null) el.setAttribute('title', v);
+                });
+                root.querySelectorAll('[data-i18n-aria-label-es],[data-i18n-aria-label-en]').forEach(el => {
+                  const v = lang === 'es' ? el.getAttribute('data-i18n-aria-label-es') : el.getAttribute('data-i18n-aria-label-en');
+                  if (v != null) el.setAttribute('aria-label', v);
+                });
+              }
+
+              function setLanguage(lang, root=document) {
+                if (!SUPPORTED.includes(lang)) lang = 'es';
+                try { localStorage.setItem('language', lang); } catch(_) {}
+                document.documentElement.setAttribute('lang', lang);
+
+                // Mostrar/ocultar bloques por clase/atributo
+                root.querySelectorAll('.lang, [data-lang]').forEach(el => {
+                  const elLang = el.dataset.lang || (el.classList.contains('es') ? 'es'
+                                    : (el.classList.contains('en') ? 'en' : null));
+                  if (!elLang) return;
+                  if (elLang === lang) {
+                    el.style.display=''; requestAnimationFrame(()=>el.classList.remove('hidden'));
+                  } else {
+                    el.classList.add('hidden'); setTimeout(()=>{ el.style.display='none'; }, 300);
+                  }
+                });
+
+                // NUEVO: traducir textos inline (anchors, botones, etc.) sin tocar href
+                applyI18nText(lang, root);
+
+                // Actualizar TODOS los selectores (drop/down/up)
+                document.querySelectorAll('.language-selector.bs-lang').forEach(c => {
+                  updateSelectorUI(c, lang);
+                  closeMenu(c);
+                });
+              }
+              window.LangSwitch = { setLanguage };
+
+              function updateSelectorUI(container, lang) {
+                const toggle = container.querySelector('.language-toggle');
+                const menu   = container.querySelector('.language-menu');
+                if (toggle) {
+                  const img = toggle.querySelector('.flag');
+                  const lab = toggle.querySelector('.label');
+                  if (img) { img.src = FLAGS[lang]; img.alt = LABEL[lang]; }
+                  if (lab) lab.textContent = LABEL[lang];
+                  toggle.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a Español');
+                }
+                if (menu) {
+                  const o = other(lang);
+                  const onlyFlags = container.classList.contains('flags-only');
+                  const itemLabel = onlyFlags ? '' : `<span>${LABEL[o]}</span>`;
+                  const imgSize   = onlyFlags ? 24 : 18;
+
+                  menu.innerHTML = `
+                    <li>
+                      <button type="button" role="menuitemradio" aria-checked="false"
+                              data-lang="${o}" aria-label="${LABEL[o]}" title="${LABEL[o]}">
+                        <img src="${FLAGS[o]}" alt="" width="${imgSize}">${itemLabel}
+                      </button>
+                    </li>`;
+                  const btn = menu.querySelector('[data-lang]');
+                  btn.onclick = () => setLanguage(o);
+                }
+              }
+
+              function openMenu(c){
+                const t=c.querySelector('.language-toggle'), m=c.querySelector('.language-menu');
+                c.classList.add('show'); t.classList.add('show'); m.classList.add('show');
+                t.setAttribute('aria-expanded','true');
+              }
+              function closeMenu(c){
+                const t=c.querySelector('.language-toggle'), m=c.querySelector('.language-menu');
+                c.classList.remove('show'); t.classList.remove('show'); m.classList.remove('show');
+                t.setAttribute('aria-expanded','false');
+              }
+              const isOpen = c => c.classList.contains('show');
+
+              function initSelector(c){
+                const t=c.querySelector('.language-toggle'), m=c.querySelector('.language-menu');
+                if(!t||!m) return;
+
+                // Click en botón: toggle del menú
+                t.addEventListener('click', e => {
+                  e.stopPropagation();
+                  isOpen(c) ? closeMenu(c) : openMenu(c);
+                });
+
+                // Cerrar al hacer click fuera
+                document.addEventListener('click', e => { if (!c.contains(e.target)) closeMenu(c); });
+
+                // Teclado
+                t.addEventListener('keydown', e => {
+                  if (e.key==='Enter' || e.key===' ') { e.preventDefault(); isOpen(c)?closeMenu(c):openMenu(c); }
+                });
+                m.addEventListener('keydown', e => {
+                  if (e.key==='Escape'){ e.preventDefault(); closeMenu(c); t.focus(); }
+                });
+              }
+
+              function init(){
+                document.querySelectorAll('.language-selector.bs-lang').forEach(initSelector);
+                const start = getParamLang() || localStorage.getItem('language') || getBrowserLang() || 'es';
+                setLanguage(start);
+              }
+              document.addEventListener('DOMContentLoaded', init);
+            })();
+         </script>
+        <script src="assets/js/vendor/jquary-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/bootstrap-bundle.js"></script>
+        <script src="assets/js/vendor/imagesloaded-pkgd.js"></script>
+        <script src="assets/js/vendor/waypoints.min.js"></script>
+        <script src="assets/js/vendor/venobox.min.js"></script>
+               <script src="assets/js/vendor/meanmenu.js"></script>
+        <script src="assets/js/vendor/jquery.isotope.js"></script>
+        <script src="assets/js/vendor/swiper.min.js"></script>
+        <script src="assets/js/vendor/split-type.min.js"></script>
+        <script src="assets/js/vendor/gsap.min.js"></script>
+        <script src="assets/js/vendor/scroll-trigger.min.js"></script>
+        <script src="assets/js/vendor/smooth-scroll.js"></script>
+        <script src="assets/js/vendor/nice-select.js"></script>
+        <script src="assets/js/vendor/daterangepicker.min.js"></script>
+        <script src="assets/js/vendor/moment.min.js"></script>
+        <script src="assets/js/contact.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

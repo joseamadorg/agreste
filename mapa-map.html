@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EL AGRESTE — Mapa Interactivo</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <style>
+    :root {
+      --agrestre: #007f80; /* pin fill */
+      --bg: #0f1416;
+      --panel: #ffffff;
+      --text: #0b2b30;
+    }
+    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; }
+    body { display: grid; grid-template-columns: 340px 1fr; grid-template-rows: 100vh; background: var(--bg); }
+
+    #sidebar { background: var(--panel); color: var(--text); overflow: auto; padding: 16px; box-shadow: 2px 0 12px rgba(0,0,0,.08); }
+    #map { height: 100vh; width: 100%; }
+
+    .brand { display:flex; align-items:center; gap:.6rem; margin-bottom: .6rem; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 999px; background: var(--agrestre); }
+    h1 { font-size: 1.1rem; margin: 0; letter-spacing: .4px; }
+    .muted { color: #4a6b6e; font-size: .85rem; }
+
+    .filters { margin-top: 8px; border-top: 1px solid #e8eef0; padding-top: 12px; }
+    .filters h2 { font-size: .95rem; margin: 8px 0; }
+    .chips { display:flex; gap:8px; flex-wrap:wrap; }
+    .chip { display:inline-flex; align-items:center; gap:6px; border:1px solid #d5e7e8; padding:6px 10px; border-radius:999px; font-size:.85rem; cursor:pointer; user-select:none; }
+    .chip input { accent-color: var(--agrestre); }
+    .search { display:flex; gap:8px; margin:10px 0 12px; }
+    .search input { flex:1; padding:8px 10px; border:1px solid #d5e7e8; border-radius:8px; font-size:.95rem; }
+    .btnbar { display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 12px; }
+    .btn { appearance:none; border:1px solid #d5e7e8; background:#fff; color:#0b2b30; padding:8px 12px; border-radius:10px; cursor:pointer; font-size:.9rem; }
+    .btn.primary { background: var(--agrestre); color: #fff; border-color: var(--agrestre); }
+    .stat { font-size:.85rem; color:#4a6b6e; margin-top:6px; }
+
+    /* Popup */
+    .popup-card { width:min(100%, 72vw); }
+    .popup-card .thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 240px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    object-fit: scale-down;
+    }
+    .popup-card h3 { margin: 0 0 6px; font-size: 1rem; }
+    .popup-card p { margin: 0 0 8px; font-size: .92rem; line-height: 1.35; color:#143f44; }
+    .popup-card .tags { display:flex; gap:6px; flex-wrap:wrap; margin:6px 0 10px; }
+    .popup-card .tag { font-size:.75rem; padding:4px 8px; border:1px solid #cfe5e6; border-radius:999px; color:#0b2b30; }
+
+    .popup-card .actions {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding-top: 4px;
+    }
+    .popup-card .actions a {
+      text-align:center;
+      text-decoration:none;
+      border-radius:10px;
+      border:1px solid var(--agrestre);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .popup-card .actions a.info {
+      background: var(--agrestre);
+      color:#fff;
+      width:50%;              /* 50% del ancho del popup */
+      min-height: 40px;       /* centro vertical del texto */
+    }
+
+    /* 24px circular pin */
+    .pin { width:24px; height:24px; border-radius:50%; background: var(--agrestre); border:3px solid #fff; }
+    .leaflet-marker-icon.pin { box-sizing: content-box; }
+
+    @media (max-width: 980px){
+      body{ grid-template-columns: 1fr; grid-template-rows: 44vh 56vh; }
+      #sidebar{ order:2; }
+      #map{ order:1; }
+    }
+  </style>
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="brand"><span class="dot"></span><h4>Mapa Interactivo — Interactive Map</h4></div>
+
+    <div class="search">
+      <input id="q" type="search" placeholder="Buscar destino | Search location" />
+    </div>
+
+    <div class="filters">
+      <h2 id="filtersTitle">Categorías | Categories</h2>
+      <div id="categories" class="chips"></div>
+      <hr>
+      <div class="btnbar">
+        <button id="resetFilters" class="btn">Limpiar filtros | Clear Filters</button>
+      </div>
+  </aside>
+
+  <div id="map"></div>
+
+  <script>
+    // --- 24px circular pin as a DivIcon ---
+    const pinIcon = L.divIcon({
+      className: 'pin',
+      html: '',
+      iconSize: [24,24],
+      iconAnchor: [12,12],   // centro exacto del círculo sobre la coordenada
+      popupAnchor: [0,-10]
+    });
+
+    // --- Etiquetas bilingües SOLO para UI/visual (lógica intacta con la clave ES) ---
+    const CAT_LABELS = {
+      'Aventura': 'Aventura | Adventure',
+      'EcoTurismo': 'EcoTurismo | EcoTurism',
+      'Fotografía': 'Fotografía | Photography',
+      'Gastronomia Local': 'Gastronomia Local | Local Gastronomy',
+      'Pesca': 'Pesca | Fishing',
+      'Senderismo': 'Senderismo | Hiking'
+    };
+
+    // --- Dataset con categorías EXACTAS provistas (ES como clave) ---
+    const destinations = [
+      {
+        id: 'torres-del-paine',
+        title: 'Torres del Paine – Chile',
+        lat: -50.9423262, lon: -73.4093628,
+        url: 'https://agrestepatagonia.com/locations/puma-torres-del-paine-chile/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/AdobeStock_825514215-scaled-e1749491264905.jpeg',
+        desc_es: 'En el corazón del Parque Nacional Torres del Paine, en Chile, se encuentra una de las densidades más altas de pumas (Puma concolor puma) en el mundo —entre 3 y 7 individuos por cada 100 km²— gracias a su estricta protección y proyectos de convivencia con ganado local.',
+        desc_en: 'In the heart of Chile’s Torres del Paine National Park lies one of the world’s highest densities of pumas (Puma concolor puma)—between 3 and 7 individuals per 100 km²—thanks to strict protection and coexistence projects with local livestock.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'rancho-patagonico',
+        title: 'Rancho Patagónico – Santa Cruz',
+        lat: -47.6747698, lon: -68.4648949,
+        url: 'https://agrestepatagonia.com/locations/rancho-patagonico-santa-cruz/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/361063536_3448042748780507_5247477360065200195_n-300x300.jpeg',
+        desc_es: 'Ubicado en una estancia de más de 10.700ha diseñada al estilo de los años 40, el Rancho Patagónico ofrece una experiencia día completo (o más) que combina cabalgatas, cocina tradicional, actividades culturales y exploración geológica en un entorno virgen.',
+        desc_en: 'Set on a ranch of over 10,700 ha styled after the 1940s, Rancho Patagónico offers a full-day (or longer) experience blending horseback riding, traditional cuisine, cultural activities, and geological exploration in a pristine setting.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'patagonia-azul',
+        title: 'Patagonia Azul – Chubut',
+        lat: -44.9998972, lon: -65.587029,
+        url: 'https://agrestepatagonia.com/locations/recorrido-patagonia-azul-chubut/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/356701_2_131653_raw-300x300.jpeg',
+        desc_es: 'En la transición entre la estepa patagónica y el Atlántico Sur, se extiende la Costa Azul, un corredor natural y cultural que forma parte del flamante Parque Interjurisdiccional Marino Costero Patagonia Azul. Este recorrido te sumerge en paisajes costeros vírgenes, fauna marina abundante y sitios históricos poco conocidos, todo en clave de conservación y descubrimiento.',
+        desc_en: 'At the transition between the Patagonian steppe and the South Atlantic, the Blue Coast extends as a natural and cultural corridor within the new Patagonia Azul Interjurisdictional Marine Coastal Park. This route immerses you in pristine coastal scenery, abundant marine wildlife, and lesser-known historic sites—through a lens of conservation and discovery.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'rio-corcovado',
+        title: 'Rio Corcovado – Rio Pico',
+        lat: -43.534127, lon: -71.4668745,
+        url: 'https://agrestepatagonia.com/locations/rio-corcovado-rio-pico/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/rafting_corcovado.webp',
+        desc_es: 'Sus rápidos cristalinos —alimentados por deshielos andinos y lagos de altura— convierten a este río en un destino destacado para rafting en la Patagonia, con secciones aptas para principiantes, familias y también para buscadores de adrenalina en grado medio.',
+        desc_en: 'Its crystal-clear rapids—fed by Andean snowmelt and high-elevation lakes—make it a standout rafting destination in Patagonia, with sections suitable for beginners, families, and mid-grade adrenaline seekers.',
+        categories: ['Aventura']
+      },
+      {
+        id: 'lago-vintter',
+        title: 'Lago Vintter – Rio Pico',
+        lat: -43.9685257, lon: -71.5565186,
+        url: 'https://agrestepatagonia.com/locations/lago-vintter-rio-pico/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/08/pesca_7-300x300.jpg',
+        desc_es: 'Compartido entre Argentina y Chile, el Lago Vintter (o Palena, como se lo conoce del lado chileno) es un gigante turquesa rodeado de montañas, estepa y bosques, reconocido por su calidad excepcional de pesca con mosca y spinning.',
+        desc_en: 'Shared by Argentina and Chile, Lake Vintter (Palena on the Chilean side) is a turquoise giant ringed by mountains, steppe, and forests, renowned for exceptional fly and spin fishing.',
+        categories: ['Pesca','Gastronomia Local']
+      },
+      {
+        id: 'cerro-rinon',
+        title: 'Cerro Riñón – Rio Pico',
+        lat: -43.9765737, lon: -71.6333255,
+        url: 'https://agrestepatagonia.com/locations/cerro-rinon-rio-pico/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/02.Galeria-04-jpg-300x300.webp',
+        desc_es: 'En el extremo suroeste de Chubut, en las inmediaciones del tranquilo pueblo de Río Pico, se alza el Cerro Riñón, un emblema del senderismo patagónico que combina esfuerzo, belleza y aventura en dosis perfectas.',
+        desc_en: 'In southwestern Chubut, near the quiet town of Río Pico, Cerro Riñón rises as a Patagonian hiking emblem that blends effort, beauty, and adventure in perfect measure.',
+        categories: ['Senderismo','Fotografía']
+      },
+      {
+        id: 'bosque-petrificado-sarmiento',
+        title: 'Bosque Petrificado Sarmiento',
+        lat: -45.8141966, lon: -69.0725084,
+        url: 'https://agrestepatagonia.com/locations/bosque-petrificado-sarmiento/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/bosque_sarmiento.webp',
+        desc_es: 'A solo 30 km de Sarmiento, en plena estepa patagónica, se encuentra uno de los yacimientos fósiles más sorprendentes de Argentina: el Bosque Petrificado, un área protegida que conserva árboles convertidos en piedra desde hace más de 65 millones de años.',
+        desc_en: 'Just 30 km from Sarmiento, in the Patagonian steppe, lies one of Argentina’s most remarkable fossil sites: the Petrified Forest, a protected area preserving trees turned to stone more than 65 million years ago.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'lago-musters',
+        title: 'Lago Musters',
+        lat: -45.397048, lon: -69.1666437,
+        url: 'https://agrestepatagonia.com/locations/pesca-lago-musters-sarmiento/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/20220420_195957-300x300.jpg',
+        desc_es: 'Desde la pequeña ciudad de Sarmiento, ubicada entre formaciones geológicas únicas y lagos de origen glacial, parte una de las experiencias más auténticas para amantes de la pesca deportiva: un día completo en el imponente Lago Musters, joya acuática de la Patagonia austral.',
+        desc_en: 'From the small city of Sarmiento—set among unique geological formations and glacial lakes—starts one of the most authentic sport-fishing experiences: a full day on mighty Lake Musters, an aquatic gem of southern Patagonia.',
+        categories: ['Pesca','Gastronomia Local']
+      },
+      {
+        id: 'reserva-la-zeta',
+        title: 'Reserva Laguna La Zeta',
+        lat: -42.894017, lon: -71.352953,
+        url: 'https://agrestepatagonia.com/locations/reserva-natural-esquel/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/reseva-esquel.jpg',
+        desc_es: 'A solo 4km de Esquel, con una laguna central rodeada de senderos y bosques de ñires y lengas, este espacio protegido es uno de los grandes orgullos de la comunidad esquelense, ideal para caminatas, picnics, deportes no motorizados y conexión consciente con la naturaleza. Ideal para la familia.',
+        desc_en: 'Just 4 km from Esquel, with a central lagoon ringed by trails and ñire and lenga forests, this protected area is a local point of pride—ideal for walks, picnics, non-motorized sports, and mindful nature connection. Great for families.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'trevelin',
+        title: 'Trevelin',
+        lat: -43.1697654, lon: -71.5104235,
+        url: 'https://agrestepatagonia.com/locations/trevelin-esquel/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/trevelin-scaled.jpeg',
+        desc_es: 'En el extremo noroeste de Chubut, a solo 25 km de Esquel y al pie de la majestuosa Cordillera de los Andes, se encuentra Trevelin, un pueblo encantador donde la tradición galesa se fusiona con los paisajes más vibrantes de la Patagonia.',
+        desc_en: 'In northwestern Chubut, just 25 km from Esquel and at the foot of the Andes, lies Trevelin—a charming town where Welsh tradition blends with Patagonia’s most vibrant landscapes.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'piedra-parada',
+        title: 'Piedra Parada',
+        lat: -42.7233892, lon: -70.5284995,
+        url: 'https://agrestepatagonia.com/locations/escalada-en-piedra-parada-esquel/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/pexels-victoria-marzullo-310266016-13581290-300x300.jpg',
+        desc_es: 'Este monolito de origen volcánico de más de 200 metros de altura, solitario y majestuoso, se levanta en medio de la estepa patagónica como un faro geológico. A su alrededor, el paisaje revela un antiguo cráter colapsado de más de 25 km de diámetro, hoy convertido en un cañadón lleno de vida, historia y silencio.',
+        desc_en: 'This volcanic monolith over 200 meters tall rises solitary and majestic in the Patagonian steppe like a geological beacon. Around it, the landscape reveals a collapsed crater more than 25 km wide—now a canyon full of life, history, and silence.',
+        categories: ['Senderismo','Aventura']
+      },
+      {
+        id: 'rocas-coloradas',
+        title: 'Rocas Coloradas – Comodoro',
+        lat: -45.6056746, lon: -67.3321869,
+        url: 'https://agrestepatagonia.com/locations/rocas-coloradas-comodoro/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/Rocas-Coloradas-Chubut-5-e1752703998481-300x300.webp',
+        desc_es: 'A solo 20 km al norte de Comodoro Rivadavia, la Área Natural Protegida Rocas Coloradas cubre 95 000 ha que combinan aridez desértica, plataformas marinas, bosques petrificados y una biodiversidad costera sorprendente. Aquí, la estepa se enfrenta al mar y la historia se lee en la roca misma.',
+        desc_en: 'Just 20 km north of Comodoro Rivadavia, the Rocas Coloradas Protected Area spans 95,000 ha combining desert aridity, marine platforms, petrified forests, and striking coastal biodiversity. Here the steppe meets the sea, and history is written in the rock itself.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'puerto-deseado',
+        title: 'Puerto Deseado – Santa Cruz',
+        lat: -47.746653, lon: -65.9328953,
+        url: 'https://agrestepatagonia.com/locations/puerto-deseado-santa-cruz/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/isla_pingueino_01_sq-300x300.webp',
+        desc_es: 'Esta Travesía a Puerto Deseado y su extraordinaria biodiversidad marina explora desde playas volcánicas y faros históricos, hasta colonias de pingüinos y cañadones steppenses que tocaron los pasos del mismísimo Charles Darwin. Estos recorridos son la puerta de entrada a una Patagonia intacta, combinando fauna, historia y paisajes que no se olvidan.',
+        desc_en: 'This journey to Puerto Deseado and its extraordinary marine biodiversity explores everything from volcanic beaches and historic lighthouses to penguin colonies and steppe canyons once walked by Charles Darwin. These routes are a gateway to an untouched Patagonia, blending wildlife, history, and unforgettable landscapes.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'campamento-darwin',
+        title: 'Campamento Darwin – Santa Cruz',
+        lat: -47.8867134, lon: -66.456055,
+        url: 'https://agrestepatagonia.com/locations/campamento-darwin-santa-cruz/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/07.07.2025_16.17.44_REC.webp',
+        desc_es: 'Ubicado a la vera del estuario del Río Deseado, en la antigua Estancia Cerro del Paso, el Campamento Darwin recupera el espíritu del naturalista durante su viaje en el Beagle, ofreciendo una experiencia inmersiva en la estepa virgen, la avifauna y la historia de la Patagonia profunda.',
+        desc_en: 'Set by the Río Deseado estuary, on the historic Estancia Cerro del Paso, Darwin Camp recaptures the naturalist’s spirit from the Beagle voyage, offering an immersive experience in pristine steppe, birdlife, and the deep history of Patagonia.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'bosque-jaramillo',
+        title: 'Bosque Petrificado Jaramillo – Santa Cruz',
+        lat: -47.6720976, lon: -67.9943113,
+        url: 'https://agrestepatagonia.com/locations/bosque-jaramillo-santa-cruz/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/07/Bosque_Petrificado_12-300x300.jpeg',
+        desc_es: 'Este bosque petrificado es único: troncos de Araucaria mirabilis de hasta 30 m de largo y 3 m de diámetro yacen convertidos en piedra, como gigantes mudos testigos de un pasado profundo.',
+        desc_en: 'This petrified forest is unique: trunks of Araucaria mirabilis up to 30 m long and 3 m in diameter lie turned to stone, like silent giants bearing witness to a deep past.',
+        categories: ['EcoTurismo','Fotografía']
+      },
+      {
+        id: 'cerro-san-bernardo',
+        title: 'Cerro San Bernardo - Sarmiento',
+        lat: -45.6340433, lon: -69.4690715,
+        url: 'https://agrestepatagonia.com/locations/cerro-san-bernardo-sarmiento/',
+        img: 'https://agrestepatagonia.com/locations/wp-content/uploads/2025/06/79282712Master-e1751924508968.webp',
+        desc_es: 'Con una altitud cercana a los 1 100 m s.n.m., esta formación montañosa ofrece una experiencia exigente, inmersiva y solitaria, ideal para turistas nacionales e internacionales que buscan un senderismo auténtico y desafiante.',
+        desc_en: 'With an elevation near 1,100 m a.s.l., this mountain offers a demanding, immersive, and solitary experience—ideal for domestic and international travelers seeking authentic, challenging hiking.',
+        categories: ['Senderismo','Aventura']
+      }
+    ];
+
+    // --- Build map ---
+    const map = L.map('map', { zoomControl: true }).setView([-46.3, -69.8], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marcadores (sin cluster)
+    const markers = [];
+
+    function catLabel(es){
+      return CAT_LABELS[es] || es; // muestra ES | EN si existe, si no deja ES
+    }
+
+    function buildPopup(d){
+      const tags = d.categories.map(c=>`<span class="tag">${catLabel(c)}</span>`).join('');
+      return `
+        <div class="popup-card">
+          <img class="thumb" src="${d.img}" alt="${d.title}" loading="lazy" />
+          <h3>${d.title}</h3>
+          <div class="tags">${tags}</div>
+          <p>${d.desc_es}</p>
+          <hr class="mt-2 mb-2">
+          <p>${d.desc_en}</p>
+          <div class="actions">
+            <a class="info" href="${d.url}" target="_blank" rel="noopener">+ INFO</a>
+          </div>
+        </div>`;
+    }
+
+    destinations.forEach(d=>{
+      const m = L.marker([d.lat, d.lon], { icon: pinIcon }).bindPopup(buildPopup(d));
+      m.__meta = d;
+      m.addTo(map);
+      markers.push(m);
+    });
+
+    // Fit bounds
+    function fitAll(){
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.15));
+    }
+    fitAll();
+
+    // Filtros AND + búsqueda por título (lógica intacta)
+    const allCats = new Set();
+    destinations.forEach(d => d.categories.forEach(c => allCats.add(c)));
+    const catsEl = document.getElementById('categories');
+    const selected = new Set();
+    [...allCats].sort((a,b)=>a.localeCompare(b)).forEach(c=>{
+      const id = `cat-${c.replace(/\s+/g,'-').toLowerCase()}`;
+      const label = document.createElement('label');
+      label.className = 'chip';
+      label.innerHTML = `<input type="checkbox" id="${id}" value="${c}"> ${catLabel(c)}`;
+      catsEl.appendChild(label);
+      label.querySelector('input').addEventListener('change', (e)=>{
+        if(e.target.checked) selected.add(c); else selected.delete(c);
+        applyFilters();
+      });
+    });
+
+    const q = document.getElementById('q');
+    q.addEventListener('input', applyFilters);
+
+    document.getElementById('resetFilters').addEventListener('click', ()=>{
+      selected.clear();
+      catsEl.querySelectorAll('input[type="checkbox"]').forEach(cb=>cb.checked=false);
+      q.value = '';
+      applyFilters();
+    });
+    document.getElementById('fitAll').addEventListener('click', fitAll);
+
+    const visibleCount = document.getElementById('visibleCount');
+
+    function applyFilters(){
+      const text = q.value.trim().toLowerCase();
+      let visible = 0;
+      markers.forEach(m=>{
+        const d = m.__meta;
+        const textMatch = !text || d.title.toLowerCase().includes(text);
+        const catsMatch = selected.size === 0 || [...selected].every(tag => d.categories.includes(tag));
+        const show = textMatch && catsMatch;
+        if(show){
+          if(!map.hasLayer(m)) m.addTo(map);
+          visible++;
+        } else {
+          if(map.hasLayer(m)) map.removeLayer(m);
+        }
+      });
+      visibleCount.textContent = visible;
+    }
+
+    visibleCount.textContent = markers.length;
+  </script>
+</body>
+</html>

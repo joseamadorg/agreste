@@ -2515,7 +2515,7 @@ START: Header CSS
 
 
   .filter-card {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.1s ease, transform 0.1s ease;
   }
 
   .filter-card.d-none {
@@ -2756,7 +2756,7 @@ START: Header CSS
   font-family: "Jost", sans-serif;
   color: var(--ts-color-heading-primary);
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   padding: 35px 0;
   letter-spacing: 0px;
   font-weight: 400;
@@ -3686,6 +3686,74 @@ START: Header CSS
     START: Hero CSS
 ----------------------------------------*/
 
+/* contenedor */
+.language-selector.bs-lang { display: inline-block;}
+
+/* botón estable */
+.language-selector.bs-lang .language-toggle {
+  display: inline-flex; align-items: center; gap: .5rem;
+}
+.language-selector.bs-lang .language-toggle:focus {
+  outline: none; 
+}
+.language-selector {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.language-selector button {
+  background: #1E1E1E;
+  border: none;
+  cursor: pointer;
+}
+/* caret (fallback si no cargas el CSS de Bootstrap) */
+.language-selector.bs-lang .language-toggle::after {
+  display:none; margin-left:.255em; vertical-align:.255em; content:"";
+  border-top:.3em solid; border-right:.3em solid transparent; border-left:.3em solid transparent;
+}
+.language-selector.bs-lang.dropup .language-toggle::after { transform: rotate(180deg); }
+
+/*
+
+/* item */
+.language-selector.bs-lang .language-menu > li > button {
+  width:100%; display:flex; align-items:center; gap:.5rem;
+  border:0; background:none; padding:.375rem .75rem; text-align:left; cursor:pointer;
+}
+.language-selector.bs-lang .language-menu > li > button:hover { background:#f8f9fa; }
+
+/* transición de i18n */
+.lang, [data-lang] { opacity:1; transition:opacity .3s ease; }
+.hidden { opacity:0; }
+
+/* Menú: por defecto ABAJO del botón */
+.language-selector.bs-lang .dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + .5rem);   /* abajo */
+  bottom: auto;
+  display: none;
+  min-width: 10rem;
+  padding: .5rem 0;
+  margin: 0;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.175);
+  z-index: 1001;
+}
+
+.language-selector.bs-lang .dropdown-menu.show { display: block; }
+
+
+
+#tope {
+    position: relative;
+    bottom: 0px;
+}
+
 /* Imagen de fondo solo visible en móvil */
 .bg-mobile {
   display: none;
@@ -3873,6 +3941,7 @@ START: Header CSS
     display: none;
    }
 }
+
 
 
 
