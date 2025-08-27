@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html  lang="en">
    <head>
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/143e7f812eb93bd3b58e7e8bd/f01ad9918f3b04974a3c20b4e.js");</script>
       <meta charset="utf-8"/>
       <meta content="ie=edge" http-equiv="x-ua-compatible"/>
       <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -21,15 +22,15 @@
    </head>
    <body>
       <!-- Preloader -->
-      <!-- <div id="preloader">
+       <div id="preloader">
          <div class="container-preloader" id="container">
             <div class="preloader-anim">
-               <div class="loading" data-loading-text="Cargando..."></div>
+               <div class="loading" data-loading-text="Cargando | Loading..."></div>
             </div>
             <div class="preloader-area area-left"></div>
             <div class="preloader-area area-right"></div>
          </div>
-      </div> -->
+      </div> 
       <!-- ./ preloader -->
       <!-- header-area-start -->
       <header class="header sticky-active">
@@ -99,7 +100,7 @@
                               </li>
 
                               <li>
-                                <a href="nosotros.html"
+                                <a href="nosotros-us.html"
                                   data-i18n-es="Nosotros"
                                   data-i18n-en="Our Venture">Nosotros</a>
                               </li>
@@ -758,7 +759,7 @@
       
        
       <!-- ./ map-section -->
-      <section class="service-section-2 pt-120 pb-120">
+      <section class="service-section-2 pt-120 pb-120 hero-actividad">
          <div class="bg-shape" data-background="assets/img/bg-img/bg_1.webp"></div>
          <div class="container">
           <div class="row gy-lg-0 gy-4">
@@ -962,7 +963,7 @@
             <div class="row footer-wrap">
                <div class="col-lg-3 col-md-6">
                   <div class="footer-widget">
-                     <div class="widget-header logo-header">
+                     <div class="widget-header logo-header hero-actividad">
                         <div class="footer-logo">
                            <a href="index.html"><img alt="logo" src="assets/img/logo/logo_agreste_blanco.png"/></a>
                         </div>
@@ -986,64 +987,38 @@
                      </ul>
                   </div>
                </div>
-               <div class="col-lg-9 col-md-6 p-5">
+              <div class="col-lg-9 col-md-6 pt-3 py-2"> 
                   <div class="contact-form">
-                     <div class="section-heading mb-30">
-                         <h2 class="section-title lang es" style="color: white;">¡Contáctanos!</h2>
-                         <h2 class="section-title lang en" style="color: white;">Contact Us!</h2>
-                     </div>
-                     <div id="form-messages"></div>
-                     <form action="contact.php" method="post" id="ajax_contact" class="form-horizontal">
-                         <div class="form-group row">
-                             <div class="col-md-6">
-                                 <div class="form-item">
-                                     <input type="name" id="name" name="name" class="form-control" placeholder="Nombre | Name" style="background-color: #ffffff29;">
-                                 </div>
-                             </div>
-                             <div class="col-md-6">
-                                 <div class="form-item">
-                                     <input type="text" id="name-2" name="name-2" class="form-control" placeholder="Apellido | Last name" style="background-color: #ffffff29;">
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="form-group row">
-                             <div class="col-md-6">
-                                 <div class="form-item">
-                                     <input type="phone" id="phone" name="phone" class="form-control" placeholder="Teléfono | Phone" style="background-color: #ffffff29;">
-                                 </div>
-                             </div>
-                             <div class="col-md-6">
-                                 <div class="form-item">
-                                     <input type="text" id="email" name="email" class="form-control" placeholder="Correo Electrónico | E-mail" style="background-color: #ffffff29;">
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="form-group row">
-                             <div class="col-md-12">
-                                 <div class="form-item">
-                                     <input type="text" id="subject" name="subject" class="form-control" placeholder="Asunto | Subject" style="background-color: #ffffff29;">
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="form-group row">
-                             <div class="col-md-12">
-                             <div class="form-item-wrap">
-                                 <div class="form-item address">
-                                     <textarea id="message" name="message" cols="30" rows="5" class="form-control address" placeholder="Mensaje | Message" style="background-color: #ffffff29;"></textarea>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="submit-btn mt-10">
-                             <button id="submit" class="ts-primary-btn" type="submit">Enviar | Submit</button>
-                         </div>
-                     </form>
-                 </div>
-               </div>
-               
+                    <div class="section-heading mb-30">
+                      <h2 class="section-title lang es" style="color: white;">¡Contáctanos!</h2>
+                      <h2 class="section-title lang en" style="color: white;">Contact Us!</h2>
+                    </div>
+
+                    <div id="form-messages"></div>
+
+                    <!-- EMBED: WordPress form dentro de tu layout -->
+                    <div class="form-group row">
+                      <div class="col-12">
+                        <div class="form-item">
+                          <iframe 
+                            id="wp-form-embed"
+                            src="https://agrestepatagonia.com/locations/contacto-contactus/"
+                            title="Formulario de EL AGRESTE"
+                            style="width:100%;border:0;display:block;min-height:520px; overflow: hidden;"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            aria-describedby="wp-form-note">
+                          </iframe>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /EMBED -->
+                  </div>
+                </div>
             </div>
-         </div>
+          </div>
          <div class="copyright-area">
-            <div class="container">
+           <div class="container">
                <div class="row copyright-content">
                   <div class="col-md-12">
                      <p class="lang es" style="text-align: center;">© 2025 El Agreste - Turismo Patagónico.</p>
@@ -1065,8 +1040,6 @@
       
       <!-- JS here -->
       <!-- filtro de tarjetas -->
-      
-
           <script>
             document.addEventListener('DOMContentLoaded', function () {
               const destinationItems = document.querySelectorAll(
@@ -1338,11 +1311,15 @@
          </script>
 
 
+
+
   
 
 
-       
-       
+
+
+       <!-- Turnstile -->
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
       <script src="assets/js/vendor/jquary-3.6.0.min.js"></script>
       <script src="assets/js/vendor/bootstrap-bundle.js"></script>
       <script src="assets/js/vendor/imagesloaded-pkgd.js"></script>

@@ -556,6 +556,17 @@ ul {
 
 
 
+/*FORMULARIO EMBEDIDO*/
+
+body.wp-singular.page-template.page-template-elementor_canvas.page.page-id-2417.wp-custom-logo.wp-theme-atreves.theme-atreves.woocommerce-js.translatepress-es_ES.elementor-default.elementor-template-canvas.elementor-kit-8.elementor-page.elementor-page-2417.e--ua-blink.e--ua-chrome.e--ua-webkit {
+    background: transparent !important;
+    background-color: transparent !important;
+    /* color: white; */
+}
+               
+
+
+
 /* Site Preloader */
 .container-preloader {
   align-items: center;
@@ -591,7 +602,7 @@ ul {
   }
 }
 .container-preloader .preloader-anim .txt-loading {
-  font: bold 5em "Abril Fatface", serif;
+  font: bold 1.5rem "Abril Fatface", serif;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
